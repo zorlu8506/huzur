@@ -1,0 +1,10 @@
+# Metin dosyaları depoda LF (Linux/HF Spaces ile uyumlu)
+* text=auto eol=lf
+
+# İkili varlıklar — dokunma
+*.png binary
+*.jpg binary
+*.ico binary
+*.ttf binary
+*.woff binary
+*.woff2 binary

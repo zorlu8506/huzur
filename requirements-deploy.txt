@@ -1,0 +1,8 @@
+# Canlı (HF Spaces / Docker) bağımlılıkları — torch YOK, hafif ONNX yolu.
+fastapi>=0.110
+uvicorn[standard]>=0.27
+pydantic>=2
+# Anlamsal eşleştirme (torch'suz, ONNX): yereldeki ile aynı davranış için pinli.
+fastembed==0.8.0
+onnxruntime==1.28.0
+numpy

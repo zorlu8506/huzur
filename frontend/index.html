@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keşf — Kendini Keşfet</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#f4f1ea">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Keşf — Kendini Keşfet">
+<meta property="og:description" content="Psikolojik duruma göre Kur'an, Risale-i Nur ve kanıta dayalı psikoloji; dört katmanlı bir akışla kendine dönüş.">
+<meta property="og:url" content="https://www.keshf.online/">
+<meta property="og:image" content="https://www.keshf.online/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.keshf.online/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Lora:ital,wght@0,400;0,500;1,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* SEHER / ŞAFAK — açık, ferah, huzurlu tema */
+    --paper:#f4f1ea;--paper-cool:#eaf0fb;--horizon:#f8e7c6;
+    --ink:#242747;--ink-soft:#4c4f7d;--ink-mute:#84879f;
+    --gold:#c08a2a;--gold-soft:#e0b25e;--nur-cool:#6b7ad6;--nur-warm:#d9a441;--nur-warm-soft:#e9c47e;
+    --glass:rgba(255,255,255,0.62);--glass-2:rgba(255,255,255,0.4);--glass-strong:rgba(255,255,255,0.78);
+    --glass-line:rgba(36,39,71,0.12);--glass-line-soft:rgba(36,39,71,0.07);
+    --nefis:#1f9e7f;--akil:#4a63cf;--kalp:#cf7d3c;--ruh:#bd8f1f;
+    --r-sm:12px;--r-md:16px;--r-lg:22px;--r-xl:30px;--r-pill:100px;
+    --pad:clamp(18px,4.4vw,36px);
+    --shadow-sm:0 2px 12px rgba(40,42,80,.07);
+    --shadow-md:0 16px 42px -14px rgba(40,42,80,.2);
+    --shadow-lg:0 34px 74px -22px rgba(40,42,80,.28);
+    --ring-warm:0 0 0 1px rgba(192,138,42,.32),0 14px 34px -10px rgba(192,138,42,.32);
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{box-sizing:border-box;} html,body{margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Mulish',system-ui,sans-serif;color:var(--ink);background:var(--paper);min-height:100vh;overflow-x:hidden;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  /* kağıt dokusu (ince grain) */
+  body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");}
+  .sky{position:fixed;inset:0;z-index:-2;background:
+    radial-gradient(120% 82% at 50% 116%,var(--horizon) 0%,rgba(248,231,198,0) 56%),
+    radial-gradient(88% 58% at 84% 2%,rgba(107,122,214,.14),rgba(107,122,214,0) 60%),
+    linear-gradient(180deg,#eaf0fb 0%,#f4f1ea 58%,#f8edd8 100%);transition:background 2.4s ease;}
+  body.warmed .sky{background:
+    radial-gradient(130% 92% at 50% 120%,#f6dca6 0%,rgba(246,220,166,0) 58%),
+    radial-gradient(88% 58% at 84% 2%,rgba(217,164,65,.16),rgba(217,164,65,0) 60%),
+    linear-gradient(180deg,#f2eefc 0%,#f7efe0 52%,#fbe8c8 100%);}
+  body.bright .sky{background:
+    radial-gradient(140% 100% at 50% 122%,#ffe9bd 0%,rgba(255,233,189,0) 60%),
+    linear-gradient(180deg,#f6f2fb 0%,#fbf5e9 46%,#fdeccb 100%);}
+  /* yıldızlar yerine seher tozu — çok hafif ışık zerreleri */
+  .stars{position:fixed;inset:0;z-index:-2;opacity:.4;background-image:radial-gradient(1.4px 1.4px at 22% 26%,rgba(217,164,65,.5),transparent),radial-gradient(1.2px 1.2px at 72% 18%,rgba(107,122,214,.4),transparent),radial-gradient(1.3px 1.3px at 42% 68%,rgba(217,164,65,.4),transparent),radial-gradient(1.2px 1.2px at 86% 58%,rgba(107,122,214,.35),transparent),radial-gradient(1.3px 1.3px at 56% 44%,rgba(217,164,65,.4),transparent);animation:twinkle 7s ease-in-out infinite alternate;}
+  @keyframes twinkle{from{opacity:.28}to{opacity:.5}}
+  body.still .stars{animation:none!important;opacity:.3;} body.still .nur{animation:none!important;transform:scale(1);} body.still *{transition-duration:.01ms!important;animation-duration:.01ms!important;}
+  /* nur = seher güneşi (sıcak altın hâle) */
+  .nur{width:190px;height:190px;border-radius:50%;margin:6px auto 20px;background:radial-gradient(circle at 50% 46%,rgba(255,241,205,.95) 0%,rgba(233,196,126,.55) 38%,rgba(217,164,65,.18) 60%,rgba(217,164,65,0) 74%);filter:blur(1px);animation:breathe 8s ease-in-out infinite;transition:background 2.4s ease;}
+  body.warmed .nur{background:radial-gradient(circle at 50% 46%,#fff3d6 0%,rgba(233,196,126,.6) 40%,rgba(217,164,65,0) 74%);}
+  body.bright .nur{background:radial-gradient(circle at 50% 46%,#fff8e6 0%,rgba(255,224,150,.7) 42%,rgba(255,224,150,0) 76%);}
+  @keyframes breathe{0%,100%{transform:scale(.86);opacity:.72}50%{transform:scale(1.12);opacity:1}}
+  .stage{max-width:1120px;margin:0 auto;padding:20px var(--pad) 60px;}
+  /* yüzen cam nav */
+  .top{position:sticky;top:14px;z-index:12;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
+    background:linear-gradient(180deg,var(--glass-strong),var(--glass));border:1px solid var(--glass-line-soft);border-radius:var(--r-pill);
+    padding:9px 12px 9px 20px;margin-bottom:8px;backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);box-shadow:var(--shadow-md);}
+  .top>span:first-child{font-size:.74rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:800;}
+  .top>div{display:flex;gap:8px;flex-wrap:wrap;}
+  .top button{font-family:'Mulish';letter-spacing:.02em;text-transform:none;font-size:.82rem;font-weight:600;color:var(--ink-soft);background:rgba(255,255,255,.5);border:1px solid var(--glass-line-soft);border-radius:var(--r-pill);padding:7px 15px;cursor:pointer;transition:all .3s var(--ease);}
+  .top button:hover{color:var(--ink);border-color:rgba(192,138,42,.5);background:rgba(224,178,94,.14);transform:translateY(-1px);}
+  /* HERO — güçlü karşılama */
+  .brand{position:relative;text-align:center;margin:0 auto;padding:clamp(24px,7vh,72px) 0 8px;}
+  .brand .nur{position:absolute;left:50%;margin-left:-95px;top:-6px;z-index:0;pointer-events:none;}
+  .brand-mark{position:relative;z-index:1;width:104px;height:auto;display:block;margin:0 auto;filter:drop-shadow(0 18px 40px rgba(192,138,42,.3));}
+  .brand-name{font-family:'Lora',serif;font-weight:600;font-size:clamp(3.2rem,10vw,5rem);line-height:1.02;letter-spacing:.04em;margin:18px 0 0;
+    background:linear-gradient(160deg,#3a3d78 0%,#7a6bbf 40%,var(--gold) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--ink);}
+  .brand-slogan{font-family:'Lora',serif;font-style:italic;font-size:clamp(1.1rem,2.8vw,1.36rem);color:var(--gold);margin:10px 0 0;letter-spacing:.04em;}
+  #cards{display:grid;gap:20px;grid-template-columns:1fr;counter-reset:step;}
+  #cards .card{margin-bottom:0;animation:cardIn .6s var(--ease) both;}
+  #cards .card:nth-child(2){animation-delay:.07s;} #cards .card:nth-child(3){animation-delay:.14s;} #cards .card:nth-child(4){animation-delay:.21s;}
+  @keyframes cardIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  body.still #cards .card{animation:none;}
+  @media(prefers-reduced-motion:reduce){#cards .card{animation:none;}}
+  @media(min-width:800px){#cards{grid-template-columns:1fr 1fr;}}
+  h1{font-family:'Lora',serif;font-weight:500;font-size:clamp(1.7rem,5vw,2.5rem);line-height:1.24;margin:22px 0 10px;text-align:center;letter-spacing:.01em;color:var(--ink);}
+  .hero-sub{font-size:clamp(1.7rem,5vw,2.5rem)!important;margin-top:clamp(20px,5vh,44px)!important;}
+  .lead{color:var(--ink-soft);font-size:clamp(1.02rem,2.4vw,1.14rem);max-width:56ch;margin:0 auto;text-align:center;}
+  .hint{max-width:600px;margin:24px auto 0;padding:14px 22px;border-radius:var(--r-md);background:rgba(217,164,65,.12);border:1px solid rgba(217,164,65,.3);color:#8a6414;font-size:.92rem;text-align:center;display:none;box-shadow:var(--shadow-sm);}
+  .hint.show{display:block;}
+  .picker{margin-top:44px;} .picker-label{color:var(--ink-mute);font-size:.92rem;text-align:center;margin-bottom:18px;letter-spacing:.02em;}
+  .chips{display:flex;flex-wrap:wrap;gap:11px;justify-content:center;}
+  .chip{font-size:.96rem;color:var(--ink-soft);background:var(--glass);border:1px solid var(--glass-line-soft);padding:11px 21px;border-radius:var(--r-pill);cursor:pointer;transition:all .32s var(--ease);box-shadow:var(--shadow-sm);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-weight:600;}
+  .chip:hover{color:var(--ink);border-color:rgba(192,138,42,.45);transform:translateY(-2px);box-shadow:var(--shadow-md);}
+  .chip.active{color:#fff;background:linear-gradient(135deg,var(--gold),var(--kalp));border-color:transparent;font-weight:700;box-shadow:var(--ring-warm);}
+  .chip.sub{font-size:.88rem;padding:9px 18px;}
+  .sub-wrap{margin-top:20px;display:none;} .sub-wrap.show{display:block;animation:cardIn .45s var(--ease) both;}
+  .sub-label{color:var(--ink-mute);font-size:.84rem;text-align:center;margin-bottom:12px;font-style:italic;}
+  .divider{display:flex;align-items:center;gap:16px;margin:34px auto 8px;max-width:440px;color:var(--ink-mute);font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;}
+  .divider::before,.divider::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--glass-line),transparent);}
+  .free{margin-top:18px;display:flex;flex-direction:column;gap:14px;align-items:center;}
+  textarea{width:100%;max-width:600px;min-height:78px;resize:vertical;font-family:'Mulish';font-size:1.02rem;line-height:1.6;color:var(--ink);background:var(--glass-strong);border:1px solid var(--glass-line-soft);border-radius:var(--r-md);padding:16px 19px;transition:border-color .3s var(--ease),box-shadow .3s var(--ease);box-shadow:var(--shadow-sm);}
+  textarea::placeholder{color:var(--ink-mute);} textarea:focus{outline:none;border-color:rgba(192,138,42,.55);box-shadow:0 0 0 3px rgba(217,164,65,.18),var(--shadow-sm);}
+  .send{font-size:1rem;font-weight:700;letter-spacing:.01em;color:#fff;background:linear-gradient(135deg,var(--gold),var(--kalp));border:none;border-radius:var(--r-pill);padding:13px 32px;cursor:pointer;box-shadow:var(--ring-warm);transition:transform .3s var(--ease),box-shadow .3s var(--ease);}
+  .send:hover{transform:translateY(-2px);box-shadow:0 0 0 1px rgba(192,138,42,.45),0 16px 34px -10px rgba(192,138,42,.42);}
+  .results{margin-top:48px;display:none;} .results.show{display:block;}
+  .mood-title{font-family:'Lora',serif;font-style:italic;font-size:clamp(1.4rem,3.6vw,1.7rem);text-align:center;margin:0 0 4px;color:var(--ink);}
+  .mood-note{text-align:center;color:var(--ink-mute);font-size:.94rem;margin:0 auto 10px;max-width:54ch;}
+  .flow-hint{text-align:center;color:var(--gold);font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;margin:0 0 20px;font-weight:700;opacity:.9;}
+  .reroll-row{display:flex;justify-content:center;margin-bottom:26px;}
+  .reroll{font-size:.9rem;color:#8a6414;background:rgba(217,164,65,.12);border:1px solid rgba(217,164,65,.32);border-radius:var(--r-pill);padding:10px 24px;cursor:pointer;transition:all .3s var(--ease);font-weight:600;}
+  .reroll:hover{background:rgba(217,164,65,.2);transform:translateY(-1px);}
+  /* KART — yenilenmiş */
+  .card{background:linear-gradient(180deg,var(--glass-strong),var(--glass));border:1px solid var(--glass-line-soft);border-radius:var(--r-lg);padding:26px 28px;margin-bottom:18px;position:relative;overflow:hidden;box-shadow:var(--shadow-md);backdrop-filter:blur(14px) saturate(1.1);-webkit-backdrop-filter:blur(14px) saturate(1.1);transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease);}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--glass-line);}
+  .card::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;}
+  .card::after{content:"";position:absolute;left:0;top:0;width:60%;height:60%;pointer-events:none;opacity:.6;background:radial-gradient(120% 120% at 0% 0%,var(--accent,transparent),transparent 62%);}
+  .l-nefis{--accent:rgba(31,158,127,.1);} .l-akil{--accent:rgba(74,99,207,.1);} .l-kalp{--accent:rgba(207,125,60,.1);} .l-ruh{--accent:rgba(189,143,31,.1);}
+  .l-nefis::before{background:linear-gradient(90deg,var(--nefis),rgba(31,158,127,.25));} .l-akil::before{background:linear-gradient(90deg,var(--akil),rgba(74,99,207,.25));} .l-kalp::before{background:linear-gradient(90deg,var(--kalp),rgba(207,125,60,.25));} .l-ruh::before{background:linear-gradient(90deg,var(--ruh),rgba(189,143,31,.25));}
+  .tag{display:flex;align-items:center;gap:10px;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;font-weight:800;margin-bottom:14px;position:relative;}
+  #cards .card .tag::before{counter-increment:step;content:counter(step);display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;font-size:.74rem;font-weight:800;letter-spacing:0;flex:none;}
+  .l-nefis .tag::before{background:rgba(31,158,127,.15);color:var(--nefis);} .l-akil .tag::before{background:rgba(74,99,207,.15);color:var(--akil);}
+  .l-kalp .tag::before{background:rgba(207,125,60,.16);color:var(--kalp);} .l-ruh .tag::before{background:rgba(189,143,31,.16);color:var(--ruh);}
+  .tag .dot{display:none;}
+  .layer-sub{color:var(--ink-mute);letter-spacing:.12em;font-weight:600;}
+  .l-nefis .lname{color:var(--nefis);} .l-akil .lname{color:var(--akil);} .l-kalp .lname{color:var(--kalp);} .l-ruh .lname{color:var(--ruh);}
+  .fav{position:absolute;top:20px;right:20px;background:none;border:none;color:var(--ink-mute);font-size:1.18rem;cursor:pointer;transition:all .3s var(--ease);z-index:1;}
+  .fav:hover,.fav.on{color:var(--gold);transform:scale(1.15);}
+  .arabic{font-family:'Amiri',serif;font-size:clamp(1.6rem,4.6vw,1.95rem);line-height:2;text-align:right;direction:rtl;margin:0 0 14px;color:var(--ink);}
+  .meal{font-family:'Lora',serif;font-size:1.14rem;line-height:1.72;color:var(--ink);} .ref{margin-top:10px;font-size:.84rem;color:var(--ink-mute);font-style:italic;}
+  .body-text{font-family:'Lora',serif;font-size:1.06rem;line-height:1.8;color:var(--ink-soft);}
+  .ptitle{font-weight:800;font-size:1.12rem;margin:0 0 8px;color:var(--ink);letter-spacing:-.01em;} .steps{margin:8px 0 0;padding-left:20px;color:var(--ink-soft);font-size:.97rem;} .steps li{margin-bottom:7px;}
+  .school{display:inline-block;font-size:.68rem;color:var(--akil);border:1px solid rgba(74,99,207,.35);background:rgba(74,99,207,.06);border-radius:8px;padding:3px 9px;margin-bottom:12px;letter-spacing:.04em;font-weight:700;}
+  .toggle{font-size:.8rem;color:var(--kalp);background:rgba(207,125,60,.08);border:1px solid rgba(207,125,60,.35);border-radius:var(--r-pill);padding:6px 15px;margin-top:12px;cursor:pointer;transition:all .3s var(--ease);font-weight:600;}
+  .toggle:hover{background:rgba(207,125,60,.16);}
+  .breath{display:flex;flex-direction:column;align-items:center;gap:14px;margin:12px 0 4px;}
+  .ring{width:116px;height:116px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 45%,rgba(31,158,127,.28),rgba(31,158,127,0) 70%);border:1px solid rgba(31,158,127,.4);transform:scale(.8);transition:transform 4s ease-in-out;box-shadow:0 0 34px rgba(31,158,127,.14);}
+  .phase{font-family:'Lora',serif;color:var(--nefis);font-weight:600;}
+  .bbtn{font-size:.9rem;color:var(--nefis);background:rgba(31,158,127,.1);border:1px solid rgba(31,158,127,.38);border-radius:var(--r-pill);padding:9px 22px;cursor:pointer;transition:all .3s var(--ease);font-weight:600;}
+  .bbtn:hover{background:rgba(31,158,127,.18);}
+  .micro{margin-top:18px;padding-top:15px;border-top:1px dashed var(--glass-line);display:flex;align-items:center;justify-content:space-between;gap:12px;}
+  .micro-text{font-size:.93rem;color:var(--ink-soft);} .micro-text b{color:var(--ink);font-weight:800;}
+  .done{flex:none;font-size:.82rem;color:var(--nefis);background:rgba(31,158,127,.1);border:1px solid rgba(31,158,127,.38);border-radius:var(--r-pill);padding:7px 15px;cursor:pointer;transition:all .3s var(--ease);font-weight:600;}
+  .done.on{background:var(--nefis);color:#fff;border-color:transparent;font-weight:700;}
+  .placeholder-note{margin-top:10px;font-size:.74rem;color:var(--ink-mute);}
+  .interp-badge{display:none;margin-bottom:8px;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--kalp);font-weight:800;}
+  .card.show-interp .interp-badge{display:inline-block;}
+  .card.show-interp .kalp-text{font-style:italic;color:var(--ink-soft);}
+  .feedback{margin-top:30px;padding:22px 26px;border-radius:var(--r-lg);background:linear-gradient(180deg,var(--glass-strong),var(--glass));border:1px solid var(--glass-line-soft);text-align:center;box-shadow:var(--shadow-sm);}
+  .feedback p{margin:0 0 14px;color:var(--ink-soft);} .fb-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+  .fb{font-size:.9rem;color:var(--ink-soft);background:rgba(255,255,255,.5);border:1px solid var(--glass-line-soft);border-radius:var(--r-pill);padding:9px 17px;cursor:pointer;transition:all .3s var(--ease);font-weight:600;}
+  .fb:hover{color:var(--ink);border-color:var(--gold);background:rgba(217,164,65,.08);} .fb-reply{margin-top:16px;color:#8a6414;font-family:'Lora';font-style:italic;display:none;} .fb-reply.show{display:block;}
+  .again{display:block;margin:32px auto 0;background:rgba(255,255,255,.4);border:1px solid var(--glass-line-soft);color:var(--ink-soft);font-size:.94rem;padding:12px 28px;border-radius:var(--r-pill);cursor:pointer;transition:all .3s var(--ease);font-weight:600;}
+  .again:hover{color:var(--ink);border-color:var(--gold);background:rgba(217,164,65,.06);}
+  .care{display:none;margin-top:32px;padding:26px 30px;border-radius:var(--r-lg);background:rgba(31,158,127,.08);border:1px solid rgba(31,158,127,.3);box-shadow:var(--shadow-md);}
+  .care.show{display:block;} .care h3{margin:0 0 8px;font-family:'Lora';color:#177a62;font-size:1.24rem;} .care p{margin:0 0 6px;color:var(--ink-soft);} .care strong{color:var(--ink);}
+  /* drawer + modal: koyu bağlam (grafikler koyu için ayarlı) — değişkenleri koyuya sabitle */
+  .drawer{position:fixed;top:0;right:0;height:100%;width:min(400px,92vw);background:linear-gradient(180deg,#181b3e,#111330);border-left:1px solid rgba(255,255,255,.1);padding:28px;overflow-y:auto;transform:translateX(100%);transition:transform .45s var(--ease);z-index:30;box-shadow:-30px 0 70px -20px rgba(20,20,45,.6);
+    --ink:#eef0ff;--ink-soft:#c3c6ee;--ink-mute:#8b8fc4;--glass:rgba(255,255,255,.05);--glass-line:rgba(255,255,255,.12);--glass-line-soft:rgba(255,255,255,.08);}
+  .drawer.open{transform:none;} .drawer h2{font-family:'Lora';font-size:1.4rem;margin:0 0 4px;color:var(--nur-warm-soft);} .drawer .close{float:right;background:none;border:none;color:#8b8fc4;font-size:1.5rem;cursor:pointer;transition:color .3s;} .drawer .close:hover{color:#eef0ff;}
+  .fav-item{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-md);padding:16px;margin-top:14px;font-size:.92rem;color:#c3c6ee;}
+  .fav-item .fref{color:#8b8fc4;font-size:.8rem;margin-top:6px;font-style:italic;}
+  .disclaimer{max-width:660px;margin:56px auto 0;text-align:center;color:var(--ink-mute);font-size:.82rem;line-height:1.7;border-top:1px solid var(--glass-line-soft);padding-top:26px;}
+  .disclaimer strong{color:var(--ink-soft);}
+  .temsil{margin-top:16px;padding:16px 18px;border-radius:var(--r-md);background:rgba(207,125,60,.07);border:1px solid rgba(207,125,60,.22);}
+  .temsil .tlabel{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--kalp);font-weight:800;margin-bottom:6px;}
+  .temsil .ttext{font-family:'Lora',serif;font-style:italic;font-size:1.04rem;line-height:1.7;color:var(--ink-soft);}
+  .circadian{margin-top:12px;font-size:.86rem;color:#177a62;opacity:.95;font-weight:600;}
+  .makam{display:flex;align-items:center;justify-content:center;gap:12px;margin:-2px 0 22px;font-size:.86rem;color:var(--ink-mute);flex-wrap:wrap;}
+  .sndbtn{font-size:.82rem;color:var(--ink-soft);background:var(--glass);border:1px solid var(--glass-line-soft);border-radius:var(--r-pill);padding:6px 14px;cursor:pointer;}
+  .sndbtn.on{color:#fff;background:linear-gradient(135deg,var(--nefis),#2fb48f);border-color:transparent;font-weight:600;}
+  .ebru{display:none;margin:0 0 24px;text-align:center;}
+  .ebru.show{display:block;}
+  .ebru p{color:var(--ink-mute);font-size:.87rem;margin:0 0 10px;}
+  .ebru canvas{width:100%;max-width:520px;height:200px;border-radius:var(--r-md);border:1px solid var(--glass-line-soft);background:#1a1c3e;touch-action:none;cursor:crosshair;box-shadow:var(--shadow-md);}
+  .somatic-reset{margin:0 0 16px;padding:14px 16px;border-radius:var(--r-md);background:rgba(31,158,127,.08);border:1px solid rgba(31,158,127,.28);font-size:.91rem;color:var(--ink-soft);display:flex;justify-content:space-between;gap:10px;align-items:flex-start;}
+  .somatic-reset b{color:#177a62;} .somatic-reset .x{flex:none;background:none;border:none;color:var(--ink-mute);cursor:pointer;font-size:1rem;line-height:1;}
+  .heal{margin-top:26px;text-align:center;}
+  .heal-label{font-size:.83rem;color:var(--ink-mute);margin-bottom:10px;letter-spacing:.02em;font-weight:600;}
+  .heal-bar{height:10px;border-radius:var(--r-pill);background:rgba(255,255,255,.5);border:1px solid var(--glass-line-soft);overflow:hidden;max-width:340px;margin:0 auto;box-shadow:inset 0 1px 3px rgba(40,42,80,.08);}
+  .heal-fill{height:100%;width:0;border-radius:var(--r-pill);background:linear-gradient(90deg,var(--nefis),var(--gold));transition:width .6s cubic-bezier(.2,.8,.2,1);box-shadow:0 0 12px rgba(217,164,65,.5);}
+  .bloom{position:fixed;inset:0;pointer-events:none;z-index:9;opacity:0;background:radial-gradient(circle at 50% 55%,rgba(255,224,150,.45),rgba(255,224,150,0) 55%);}
+  .bloom.go{animation:bloom 2.6s ease forwards;}
+  @keyframes bloom{0%{opacity:0}25%{opacity:1}100%{opacity:0}}
+  .spark{position:fixed;width:6px;height:6px;border-radius:50%;background:var(--gold-soft);pointer-events:none;z-index:9;opacity:0;box-shadow:0 0 8px var(--gold);}
+  .play{font-size:.78rem;color:var(--nefis);background:rgba(31,158,127,.1);border:1px solid rgba(31,158,127,.38);border-radius:var(--r-pill);padding:5px 13px;cursor:pointer;font-weight:600;}
+  .play.on{background:var(--nefis);color:#fff;border-color:transparent;}
+  .kalp-tabs{display:flex;gap:8px;margin-bottom:14px;}
+  .ktab{font-size:.8rem;color:var(--ink-mute);background:rgba(255,255,255,.4);border:1px solid var(--glass-line-soft);border-radius:var(--r-pill);padding:6px 15px;cursor:pointer;transition:all .3s var(--ease);font-weight:600;}
+  .ktab.on{color:var(--kalp);border-color:rgba(207,125,60,.5);background:rgba(207,125,60,.1);}
+  .export{font-size:.8rem;color:#8a6414;background:rgba(217,164,65,.1);border:1px solid rgba(217,164,65,.3);border-radius:var(--r-pill);padding:6px 15px;cursor:pointer;margin-top:14px;transition:all .3s var(--ease);font-weight:600;}
+  .export:hover{background:rgba(217,164,65,.18);}
+  /* gece saatleri: seher yerine mum ışığı — yumuşak, sıcak, kısık */
+  body.deepnight .sky{background:radial-gradient(120% 82% at 50% 116%,#f0d9a8 0%,rgba(240,217,168,0) 56%),linear-gradient(180deg,#e6ddce 0%,#eee2cd 60%,#f2e4c6 100%)!important;}
+  body.deepnight{--ink-soft:#4c4f7d;}
+  @media(max-width:560px){.stage{padding:16px 16px 44px;}.brand{padding-top:16px;}.top{padding:8px 8px 8px 15px;}.top>span:first-child{font-size:.68rem;letter-spacing:.24em;}.top button{font-size:.76rem;padding:6px 12px;}.card{padding:22px 20px;}.brand .nur{margin-left:-80px;width:160px;}.nur{width:160px;height:160px;}}
+</style>
+</head>
+<body>
+<div class="sky"></div><div class="stars"></div>
+<div class="bloom" id="bloom"></div>
+
+<div class="overlay" id="trend">
+  <div class="sheet">
+    <button class="close" id="trendClose">×</button>
+    <h2>Ruh Hali Seyrim</h2>
+    <div class="range" id="range">
+      <button data-d="7">7 gün</button><button data-d="14" class="on">14 gün</button><button data-d="30">30 gün</button>
+    </div>
+    <p class="thint" id="thint"></p>
+    <div class="chart-title">Duygu dağılımı</div>
+    <div id="barChart"></div>
+    <div class="legend" id="legend"></div>
+    <div class="chart-title">Huzur çizgisi <span style="color:var(--ink-mute);font-weight:400">(içerik sonrası his: −1 → +1)</span></div>
+    <div id="lineChart"></div>
+    <p class="tempty" id="tempty" style="display:none">Henüz yeterli veri yok. Birkaç gün kullandıkça seyrin burada belirir. (Denemek için <code>python seed_demo.py</code>)</p>
+  </div>
+</div>
+<style>
+  .overlay{position:fixed;inset:0;z-index:20;background:rgba(8,9,26,.72);backdrop-filter:blur(4px);display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:40px 16px;}
+  .overlay.open{display:flex;}
+  .sheet{width:min(680px,100%);background:#15173a;border:1px solid var(--glass-line);border-radius:24px;padding:26px 26px 30px;position:relative;}
+  .sheet h2{font-family:'Lora',serif;font-size:1.5rem;margin:0 0 14px;color:var(--nur-warm-soft);}
+  .sheet .close{position:absolute;top:18px;right:20px;background:none;border:none;color:var(--ink-mute);font-size:1.5rem;cursor:pointer;}
+  .range{display:flex;gap:8px;margin-bottom:14px;}
+  .range button{font-size:.82rem;color:var(--ink-soft);background:var(--glass);border:1px solid var(--glass-line);border-radius:100px;padding:6px 14px;cursor:pointer;}
+  .range button.on{color:#241d0e;background:linear-gradient(135deg,var(--nur-warm),var(--kalp));border-color:transparent;font-weight:600;}
+  .thint{color:var(--nur-warm-soft);font-size:.92rem;background:rgba(242,200,121,.07);border:1px solid rgba(242,200,121,.22);border-radius:12px;padding:10px 14px;margin:0 0 18px;}
+  .chart-title{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);font-weight:600;margin:14px 0 8px;}
+  .legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin-top:10px;}
+  .legend .li{display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--ink-soft);}
+  .legend .sw{width:11px;height:11px;border-radius:3px;}
+  .tempty{color:var(--ink-mute);font-size:.9rem;margin-top:16px;} .tempty code{color:var(--nefis);}
+  #barChart svg,#lineChart svg{width:100%;height:auto;display:block;}
+</style>
+
+<div class="drawer" id="drawer">
+  <button class="close" id="drawerClose">×</button>
+  <h2>Huzur Koleksiyonum</h2>
+  <p style="color:var(--ink-mute);font-size:.85rem;margin-top:4px;">Sana iyi gelen kartlar burada birikir.</p>
+  <div id="favList"></div>
+</div>
+
+<main class="stage">
+  <div class="top"><span style="display:inline-flex;align-items:center;gap:7px"><svg viewBox="0 0 100 128" width="14" height="18" aria-hidden="true" style="overflow:visible"><path d="M50 10 C64 30 80 45 80 60 A30 30 0 1 1 20 60 C20 45 36 30 50 10 Z" fill="#f2c879"/></svg>Keşf</span><!--brand--><div style="display:flex;gap:8px"><button id="trendOpen">📈 Ruh Halim</button><button id="sndToggle">♪ Ses</button><button id="favOpen">★ Huzur Koleksiyonum</button></div></div>
+  <div class="brand">
+    <div class="nur" id="nur"></div>
+    <svg class="brand-mark" viewBox="0 0 100 128" role="img" aria-label="Keşf">
+      <defs><radialGradient id="bd" cx="42%" cy="34%" r="72%"><stop offset="0%" stop-color="#fff4d8"/><stop offset="52%" stop-color="#f2c879"/><stop offset="100%" stop-color="#d99a3d"/></radialGradient></defs>
+      <g stroke="#f2c879" fill="none" stroke-width="1.4" stroke-linecap="round"><ellipse cx="50" cy="104" rx="30" ry="7.5" opacity=".16"/><ellipse cx="50" cy="104" rx="20" ry="5" opacity=".3"/><ellipse cx="50" cy="104" rx="10" ry="2.6" opacity=".5"/></g>
+      <path d="M50 10 C64 30 80 45 80 60 A30 30 0 1 1 20 60 C20 45 36 30 50 10 Z" fill="url(#bd)"/>
+      <ellipse cx="41" cy="46" rx="7" ry="11" fill="#fff" opacity=".38" transform="rotate(-18 41 46)"/>
+    </svg>
+    <h1 class="brand-name">Keşf</h1>
+    <p class="brand-slogan">Kendini Keşfet</p>
+  </div>
+  <h1 class="hero-sub">Şu an içinden ne geçiyorsa,<br>onunla başlayalım.</h1>
+  <p class="lead">Önce bedenini sakinleştirelim, sonra zihnini yumuşatalım, sonra kalbine ve ruhuna bir söz getirelim.</p>
+  <div class="hint" id="moodHint"></div>
+
+  <section class="picker" id="picker">
+    <div class="picker-label">Ne hissediyorsun?</div>
+    <div class="chips" id="mainChips"></div>
+    <div class="sub-wrap" id="subWrap"><div class="sub-label">Buna en yakın olan hangisi?</div><div class="chips" id="subChips"></div></div>
+    <div class="divider">ya da</div>
+    <div class="free">
+      <textarea id="freeText" placeholder="Kendi cümlelerinle yaz…"></textarea>
+      <button class="send" id="sendBtn">Bana eşlik et</button>
+    </div>
+  </section>
+
+  <section class="care" id="care">
+    <h3>Yanında biri olsun istiyorum</h3>
+    <p id="careMsg"></p>
+    <p>Lütfen <strong>112</strong>'yi ara ya da bir uzmana / güvendiğin birine ulaş. Sen değerlisin; bu his geçici.</p>
+  </section>
+
+  <section class="results" id="results">
+    <h2 class="mood-title" id="moodTitle"></h2>
+    <p class="mood-note" id="moodNote"></p>
+    <p class="flow-hint">Beden → Zihin → Kalp → Ruh</p>
+    <div class="makam" id="makam"></div>
+    <div class="ebru" id="ebru">
+      <p>Bir dakika: parmağınla ya da farenle renkleri serbestçe bırak. Amaç yok, sadece akış.</p>
+      <canvas id="ebruCanvas"></canvas>
+    </div>
+    <div class="reroll-row"><button class="reroll" id="rerollBtn">↻ Başka bir yaklaşım getir <span id="vcount" style="color:var(--ink-mute);font-size:.8rem;"></span></button></div>
+    <div id="cards"></div>
+    <div class="heal" id="heal" style="display:none">
+      <div class="heal-label" id="healLabel">Huzur halkası · %0</div>
+      <div class="heal-bar"><div class="heal-fill" id="healFill"></div></div>
+    </div>
+    <div class="feedback"><p>Bu okuma şu an sana nasıl geldi?</p>
+      <div class="fb-btns"><button class="fb" data-v="1">Biraz hafifledim</button><button class="fb" data-v="0">Aynı</button><button class="fb" data-v="-1">Daha ağır geldi</button></div>
+      <p class="fb-reply" id="fbReply"></p>
+    </div>
+    <button class="again" id="againBtn">Başka bir his için ↺</button>
+  </section>
+
+  <p class="disclaimer">Keşf bir teşhis veya tedavi aracı değildir; huzura giden yolda sana eşlik eder. Dinî metinler bir suçlama değil, bir rahmet dilinde sunulur. Acil durumlarda <strong>112</strong>.</p>
+</main>
+
+<script>
+const API = location.origin.startsWith("http") ? "" : "http://localhost:8000"; // aynı sunucudan servis ediliyorsa boş
+let TAX = {}, current = null, currentBundle = null, completed = new Set();
+
+async function jget(u){ const r = await fetch(API+u); return r.json(); }
+async function jpost(u,b){ const r = await fetch(API+u,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(b)}); return r.json(); }
+
+// ---- yükleme: taksonomi + ruh hali özeti ----
+(async ()=>{
+  TAX = await jget("/api/taxonomy");
+  const mc = document.getElementById("mainChips");
+  Object.entries(TAX).forEach(([mk,mv])=>{
+    const b=document.createElement("button"); b.className="chip"; b.textContent=mv.label;
+    b.onclick=()=>openSubs(mk,b); mc.appendChild(b);
+  });
+  try{ const s=await jget("/api/mood/summary?days=14");
+    if(s.hint){ const h=document.getElementById("moodHint"); h.textContent=s.hint; h.classList.add("show"); }
+  }catch(e){}
+  // sirkadiyen otomatik gece modu (21:00–06:00): arka planı koyulaştır
+  const hr=new Date().getHours();
+  if(hr>=21 || hr<6){
+    document.body.classList.add("deepnight");
+    const h=document.getElementById("moodHint");
+    if(!h.classList.contains("show")){ h.textContent="Gece modundasın — ekran yumuşatıldı. Zihin bu saatlerde daha hassastır; kendine nazik ol."; h.classList.add("show"); }
+  }
+})();
+
+function openSubs(mk,btn){
+  document.querySelectorAll("#mainChips .chip").forEach(c=>c.classList.remove("active")); btn.classList.add("active");
+  const sc=document.getElementById("subChips"); sc.innerHTML="";
+  Object.entries(TAX[mk].subs).forEach(([sk,sv])=>{
+    const b=document.createElement("button"); b.className="chip sub"; b.textContent=sv.label;
+    b.onclick=()=>{ document.querySelectorAll("#subChips .chip").forEach(c=>c.classList.remove("active")); b.classList.add("active"); match({main:mk,sub:sk}); };
+    sc.appendChild(b);
+  });
+  document.getElementById("subWrap").classList.add("show");
+}
+
+document.getElementById("sendBtn").onclick=()=>{ const t=document.getElementById("freeText").value.trim(); if(t) match({text:t}); };
+document.getElementById("rerollBtn").onclick=()=>{ if(current) match({main:current.main,sub:current.sub}); };
+
+async function match(payload){
+  const res = await jpost("/api/match", payload);
+  if(res.crisis){ showCare(res.message); return; }
+  if(res.error){ alert(res.error); return; }
+  current={main:res.main,sub:res.sub}; currentBundle=res;
+  document.getElementById("care").classList.remove("show");
+  document.body.classList.add("warmed"); document.body.classList.remove("bright");
+  // panik / kaygı: hareketi durdur (hassas kullanıcılar için)
+  document.body.classList.toggle("still", res.main==="korku" || res.sub==="panik" || res.main==="kaygi");
+  render(res);
+}
+
+function render(res){
+  document.getElementById("moodTitle").textContent=res.label;
+  document.getElementById("moodNote").textContent=res.note;
+  document.getElementById("vcount").textContent="("+res.variants+" bileşim)";
+  // huzur halkası sıfırla
+  completed.clear(); updateHeal();
+  // makam / ses önerisi + dinle
+  const mk=document.getElementById("makam");
+  if(res.makam){ mk.innerHTML=`<span>♪ Önerilen makam: <b style="color:var(--ink-soft)">${res.makam.makam}</b> — ${res.makam.etki}</span><button class="play" id="makamPlay">▶ Dinle</button>`; mk.style.display="flex";
+    document.getElementById("makamPlay").onclick=(e)=>toggleMakam(res.makam.makam,e.target); }
+  else mk.style.display="none";
+  // ebru akış tuvali: panik/öfke anında
+  const eb=document.getElementById("ebru");
+  if(res.main==="korku"||res.main==="ofke"){ eb.classList.add("show"); initEbru(); } else eb.classList.remove("show");
+  const box=document.getElementById("cards"); box.innerHTML="";
+  res.cards.forEach(c=>box.appendChild(cardEl(c)));
+  document.getElementById("fbReply").classList.remove("show");
+  const r=document.getElementById("results"); r.classList.add("show"); r.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function updateHeal(){
+  const heal=document.getElementById("heal"), fill=document.getElementById("healFill"), lbl=document.getElementById("healLabel");
+  if(!current){ heal.style.display="none"; return; }
+  heal.style.display="block";
+  const pct=Math.round(completed.size/4*100);
+  fill.style.width=pct+"%"; lbl.textContent="Huzur halkası · %"+pct;
+  if(pct===100){ lbl.textContent="Huzur halkası tamamlandı ✓ — kontrol sende."; celebrate(); }
+}
+function celebrate(){
+  const b=document.getElementById("bloom"); b.classList.remove("go"); void b.offsetWidth; b.classList.add("go");
+  if(window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const cx=innerWidth/2, cy=innerHeight*0.6;
+  for(let i=0;i<10;i++){ const s=document.createElement("div"); s.className="spark"; document.body.appendChild(s);
+    const ang=Math.random()*6.28, dist=60+Math.random()*120, dur=1400+Math.random()*800;
+    s.style.left=cx+"px"; s.style.top=cy+"px";
+    s.animate([{opacity:0,transform:"translate(0,0) scale(.5)"},{opacity:1,offset:.3},{opacity:0,transform:`translate(${Math.cos(ang)*dist}px,${Math.sin(ang)*dist-40}px) scale(1)`}],{duration:dur,easing:"cubic-bezier(.2,.8,.2,1)"});
+    setTimeout(()=>s.remove(),dur);
+  }
+}
+
+// ---- makam oynatıcı: audio/ klasöründen çalar, yoksa üretilen sese düşer ----
+let makamAudio=null;
+function makamSlug(name){ return name.split("/")[0].trim().toLowerCase()
+  .replace(/ı/g,"i").replace(/ü/g,"u").replace(/ö/g,"o").replace(/ç/g,"c").replace(/ş/g,"s").replace(/ğ/g,"g").replace(/[^a-z]/g,""); }
+function toggleMakam(name,btn){
+  if(makamAudio && !makamAudio.paused){ makamAudio.pause(); btn.textContent="▶ Dinle"; btn.classList.remove("on"); return; }
+  const src=`${API}/audio/${makamSlug(name)}.mp3`;   // telifsiz dosyayı buraya koy: frontend/audio/rast.mp3
+  makamAudio=new Audio(src); makamAudio.loop=true; makamAudio.volume=0.5;
+  makamAudio.play().then(()=>{ btn.textContent="⏸ Duraklat"; btn.classList.add("on"); })
+    .catch(()=>{ // dosya yoksa üretilen huzur müziğine düş (makam köküne göre)
+      if(!sndOn){ sndOn=true; document.getElementById("sndToggle").classList.add("on"); }
+      startSound(name); btn.textContent="♪ (üretilen müzik)"; btn.classList.add("on"); });
+}
+
+function cardEl(c){
+  const el=document.createElement("div"); el.className="card l-"+c.layer;
+  let inner=`<div class="tag"><span class="dot"></span><span class="lname">${c.layer_name}</span><span class="layer-sub">· ${c.layer_sub}</span></div>`;
+  inner+=`<button class="fav" title="Huzur koleksiyonuma ekle">☆</button>`;
+  if(c.layer==="nefis"){
+    if(current.main==="ofke"||current.main==="korku"){
+      inner+=`<div class="somatic-reset"><span>💡 <b>Bedensel Sıfırlama:</b> Şu an hangi pozisyondaysan onu değiştir. Ayaktaysan otur, oturuyorsan uzan. Omuzlarını serbest bırak, çeneni gevşet.</span><button class="x" title="gizle">×</button></div>`;
+    }
+    inner+=`<p class="ptitle">${c.title}</p><p class="body-text">${c.intro}</p>`;
+    if(c.breath){ inner+=`<div class="breath"><div class="ring"><span class="phase">Hazır</span></div><button class="bbtn">Benimle nefes al</button></div>`; }
+    else if(c.steps){ inner+=stepsHtml(c.steps); }
+    if(c.circadian){ inner+=`<p class="circadian">☼ ${c.circadian}</p>`; }
+  } else if(c.layer==="akil"){
+    inner+=`<span class="school">${c.school}</span><p class="ptitle">${c.title}</p><p class="body-text">${c.intro}</p>${stepsHtml(c.steps)}`;
+  } else if(c.layer==="kalp"){
+    const hasOrig=!!c.orijinal, hasTemsil=!!c.temsil;
+    if(hasTemsil){ inner+=`<div class="kalp-tabs"><button class="ktab on" data-k="metin">Metin</button><button class="ktab" data-k="kissa">Kıssa-Metafor</button></div>`; }
+    const mainText=hasOrig?c.orijinal:c.sade, mainRef=hasOrig?(c.kaynak||c.ref):c.ref;
+    inner+=`<div class="kalp-pane" data-pane="metin"><span class="interp-badge">✦ Keşf yorumu</span><p class="body-text kalp-text">${mainText}</p><p class="ref kalp-ref">${mainRef}</p>`;
+    if(hasOrig && c.sade) inner+=`<button class="toggle">✦ Keşf yorumu</button>`;
+    if(!hasOrig) inner+=`<p class="placeholder-note">Orijinal pasaj canlıda uzman onayıyla eklenecek.</p>`;
+    inner+=`</div>`;
+    if(hasTemsil){ inner+=`<div class="kalp-pane" data-pane="kissa" style="display:none"><div class="temsil"><div class="tlabel">Temsil</div><div class="ttext">${c.temsil.text}</div><p class="ref">${c.temsil.ref}</p></div></div>`; }
+    inner+=`<button class="export" data-kind="kalp">📸 Kart olarak kaydet</button>`;
+  } else if(c.layer==="ruh"){
+    inner+=`<p class="arabic">${c.arabic}</p><p class="meal">${c.meal}</p><p class="ref">${c.ref}</p>`;
+    inner+=`<button class="export" data-kind="ruh">📸 Kart olarak kaydet</button>`;
+  }
+  inner+=`<div class="micro"><span class="micro-text"><b>Küçük adım:</b> ${c.micro}</span><button class="done">Yaptım</button></div>`;
+  el.innerHTML=inner;
+
+  // favori
+  el.querySelector(".fav").onclick=async(e)=>{
+    e.target.classList.add("on"); e.target.textContent="★";
+    await jpost("/api/favorites",{main:current.main,sub:current.sub,layer:c.layer,content_id:c.content_id||null,payload:c});
+  };
+  // mikro-eylem tamamlama (dopamin sinyali) + huzur halkası
+  el.querySelector(".done").onclick=(e)=>{
+    const on=e.target.classList.toggle("on");
+    e.target.textContent=on?"Tamamlandı ✓":"Yaptım";
+    if(on) completed.add(c.layer); else completed.delete(c.layer);
+    updateHeal();
+  };
+  // somatik reset kapat
+  const sx=el.querySelector(".somatic-reset .x"); if(sx) sx.onclick=()=>sx.closest(".somatic-reset").remove();
+  // kalp sekmeleri
+  el.querySelectorAll(".ktab").forEach(tab=>tab.onclick=()=>{
+    el.querySelectorAll(".ktab").forEach(t=>t.classList.remove("on")); tab.classList.add("on");
+    el.querySelectorAll(".kalp-pane").forEach(p=>p.style.display=p.dataset.pane===tab.dataset.k?"block":"none");
+  });
+  // görsel kart kaydet
+  const ex=el.querySelector(".export"); if(ex) ex.onclick=()=>exportCard(c);
+  // Risale: standart orijinal metin, tıklayınca Keşf yorumu (sade)
+  const tg=el.querySelector(".toggle");
+  if(tg && c.orijinal && c.sade){ let interp=false; const p=el.querySelector(".kalp-text"); const rf=el.querySelector(".kalp-ref");
+    tg.onclick=()=>{ interp=!interp; p.textContent=interp?c.sade:c.orijinal;
+      if(rf) rf.textContent=interp?c.ref:(c.kaynak||c.ref);
+      el.classList.toggle("show-interp",interp);
+      tg.textContent=interp?"↩ Orijinal metni göster":"✦ Keşf yorumu"; }; }
+  // nefes
+  if(c.layer==="nefis"&&c.breath) setupBreath(el,c.breath);
+  return el;
+}
+function stepsHtml(a){ return '<ol class="steps">'+a.map(s=>`<li>${s}</li>`).join('')+'</ol>'; }
+
+function setupBreath(el,phases){
+  const btn=el.querySelector(".bbtn"),ring=el.querySelector(".ring"),ph=el.querySelector(".phase");
+  const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let run=false,i=0,timer=null;
+  function step(){ const [l,s,sc]=phases[i]; ph.textContent=l+" · "+s;
+    if(!reduce){ ring.style.transitionDuration=s+"s"; ring.style.transform="scale("+sc+")"; }
+    timer=setTimeout(()=>{ i=(i+1)%phases.length; if(run) step(); }, s*1000); }
+  btn.onclick=()=>{ run=!run; if(run){ btn.textContent="Durdur"; i=0; step(); } else { btn.textContent="Benimle nefes al"; clearTimeout(timer); ph.textContent="Hazır"; ring.style.transform="scale(.8)"; } };
+}
+
+// feedback
+document.querySelectorAll(".fb").forEach(b=>b.onclick=async()=>{
+  const v=+b.dataset.v, reply=document.getElementById("fbReply");
+  const cards=(currentBundle?.cards||[]).map(c=>({layer:c.layer,content_id:c.content_id||null}));
+  await jpost("/api/feedback",{main:current.main,sub:current.sub,cards,value:v});
+  if(v===1){ document.body.classList.add("bright"); reply.textContent="Ne güzel. Bu küçük aralık, kalbin genişlemesinin başlangıcı."; }
+  else if(v===0){ reply.textContent="Sorun değil, her şey bir anda değişmez. Dilersen başka bir yaklaşım deneyelim."; }
+  else{ reply.textContent="Bunu duyduğuma üzüldüm. Bir uzmana ya da güvendiğin birine ulaşmak da bir güç işaretidir. Acil bir şey varsa 112 yanında."; }
+  reply.classList.add("show");
+});
+
+function showCare(msg){ document.getElementById("results").classList.remove("show"); document.getElementById("careMsg").textContent=msg; document.getElementById("care").classList.add("show"); document.body.classList.remove("warmed","bright"); document.getElementById("care").scrollIntoView({behavior:"smooth",block:"center"}); }
+
+document.getElementById("againBtn").onclick=()=>{ document.getElementById("results").classList.remove("show"); document.getElementById("freeText").value=""; current=null; document.body.classList.remove("warmed","bright","still"); document.querySelectorAll(".chip").forEach(c=>c.classList.remove("active")); document.getElementById("subWrap").classList.remove("show"); document.getElementById("picker").scrollIntoView({behavior:"smooth",block:"center"}); };
+
+// ---- üretilen huzur müziği (yumuşak pad + çan notaları + nefes gürültüsü) — tamamen sentez, telifsiz ----
+let audioCtx=null, sndOn=false, sndNodes=[], sndMaster=null, sndLP=null, bellTimer=null, bellRoot=110;
+const MAKAM_KOK={rast:196,nihavend:220,huseyni:220,hicaz:220,ussak:220,saba:233,rehavi:196,segah:207,hicazkar:220};
+function kokFromMakam(name){ if(!name) return 220; const k=name.split(/[\/ ]/)[0].toLowerCase()
+  .replace(/â/g,'a').replace(/î/g,'i').replace(/û/g,'u'); return MAKAM_KOK[k]||220; }
+function startSound(makamName){
+  audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();
+  if(audioCtx.state==="suspended") audioCtx.resume();
+  stopNodes();
+  const t=audioCtx.currentTime, root=kokFromMakam(makamName)/2; bellRoot=root;
+  sndMaster=audioCtx.createGain(); sndMaster.gain.value=0;
+  sndLP=audioCtx.createBiquadFilter(); sndLP.type="lowpass"; sndLP.frequency.value=1100;
+  sndLP.connect(sndMaster); sndMaster.connect(audioCtx.destination);
+  sndMaster.gain.linearRampToValueAtTime(0.85, t+3);
+  // yumuşak kahverengi gürültü yatağı (nefes gibi)
+  const bs=2*audioCtx.sampleRate, buf=audioCtx.createBuffer(1,bs,audioCtx.sampleRate), dd=buf.getChannelData(0);
+  let last=0; for(let i=0;i<bs;i++){ const w=Math.random()*2-1; dd[i]=(last+0.02*w)/1.02; last=dd[i]; dd[i]*=3.2; }
+  const noise=audioCtx.createBufferSource(); noise.buffer=buf; noise.loop=true;
+  const nf=audioCtx.createBiquadFilter(); nf.type="lowpass"; nf.frequency.value=460;
+  const ng=audioCtx.createGain(); ng.gain.value=0.05;
+  noise.connect(nf); nf.connect(ng); ng.connect(sndLP); noise.start(); sndNodes.push(noise,ng);
+  // pad akoru: kök + 4'lü + 5'li + oktav (sus, çok sakin), her biri yavaş salınımlı
+  [1, 4/3, 3/2, 2].forEach((r,i)=>{
+    const o=audioCtx.createOscillator(); o.type=i<2?"sine":"triangle"; o.frequency.value=root*r;
+    const g=audioCtx.createGain(); g.gain.value=0.075-0.014*i;
+    const lfo=audioCtx.createOscillator(); lfo.frequency.value=0.05+0.03*i;
+    const lfoG=audioCtx.createGain(); lfoG.gain.value=0.05;
+    lfo.connect(lfoG); lfoG.connect(g.gain);
+    o.connect(g); g.connect(sndLP); o.start(); lfo.start(); sndNodes.push(o,lfo,g);
+  });
+  // ara sıra yumuşak çan notaları (pentatonik) — müzik hissi
+  scheduleBell(2500);
+}
+function scheduleBell(ms){ bellTimer=setTimeout(()=>{
+  if(!sndOn||!audioCtx) return;
+  const pent=[1,9/8,4/3,3/2,5/3,2], f=bellRoot*2*pent[Math.floor(Math.random()*pent.length)];
+  const o=audioCtx.createOscillator(); o.type="sine"; o.frequency.value=f;
+  const g=audioCtx.createGain(), tt=audioCtx.currentTime;
+  g.gain.setValueAtTime(0,tt); g.gain.linearRampToValueAtTime(0.05,tt+0.4);
+  g.gain.exponentialRampToValueAtTime(0.0001,tt+4);
+  o.connect(g); g.connect(sndLP); o.start(tt); o.stop(tt+4.2);
+  scheduleBell(4000+Math.random()*5000);
+}, ms); }
+function stopNodes(){ sndNodes.forEach(n=>{try{n.stop&&n.stop()}catch(e){}}); sndNodes=[]; if(bellTimer){clearTimeout(bellTimer);bellTimer=null;} }
+function stopSound(){ if(sndMaster&&audioCtx){ const t=audioCtx.currentTime; sndMaster.gain.linearRampToValueAtTime(0,t+1.4); setTimeout(stopNodes,1500); } else stopNodes(); }
+document.getElementById("sndToggle").onclick=(e)=>{ sndOn=!sndOn; e.currentTarget.classList.toggle("on",sndOn);
+  if(sndOn) startSound(currentBundle&&currentBundle.makam&&currentBundle.makam.makam); else stopSound(); };
+
+// ---- ebru / akış tuvali: 1 dakikalık odak alanı (üretilen, telifsiz) ----
+let ebruInit=false;
+function initEbru(){
+  const cv=document.getElementById("ebruCanvas"); if(!cv) return;
+  const dpr=window.devicePixelRatio||1; cv.width=cv.clientWidth*dpr; cv.height=200*dpr;
+  const ctx=cv.getContext("2d"); ctx.scale(dpr,dpr);
+  if(!ebruInit){
+    ebruInit=true; let drawing=false, hue=200;
+    const pos=e=>{ const r=cv.getBoundingClientRect(); const p=e.touches?e.touches[0]:e; return [p.clientX-r.left,p.clientY-r.top]; };
+    const draw=(x,y)=>{ hue=(hue+2)%360; ctx.beginPath(); ctx.arc(x,y,14,0,7); ctx.fillStyle=`hsla(${hue},60%,60%,.10)`; ctx.fill(); };
+    const start=e=>{drawing=true;const[x,y]=pos(e);draw(x,y);};
+    const move=e=>{ if(!drawing)return; e.preventDefault(); const[x,y]=pos(e); draw(x,y); };
+    const end=()=>drawing=false;
+    cv.addEventListener("mousedown",start); cv.addEventListener("mousemove",move); window.addEventListener("mouseup",end);
+    cv.addEventListener("touchstart",start,{passive:false}); cv.addEventListener("touchmove",move,{passive:false}); cv.addEventListener("touchend",end);
+    // yavaşça soluklaşan iz (akış hissi)
+    setInterval(()=>{ ctx.fillStyle="rgba(12,14,40,0.04)"; ctx.fillRect(0,0,cv.width,cv.height); },120);
+  }
+}
+
+// ---- görsel kart üretici (PNG) — söz kartı indir/paylaş ----
+function _wrap(ctx,text,x,y,maxW,lh){
+  const words=(text||"").split(" "); let line="", yy=y;
+  for(const w of words){ const t=line+w+" ";
+    if(ctx.measureText(t).width>maxW && line){ ctx.fillText(line.trim(),x,yy); line=w+" "; yy+=lh; } else line=t; }
+  if(line) ctx.fillText(line.trim(),x,yy); return yy;
+}
+function exportCard(c){
+  const W=1080,H=1350,cv=document.createElement("canvas"); cv.width=W; cv.height=H;
+  const x=cv.getContext("2d");
+  const g=x.createLinearGradient(0,0,0,H); g.addColorStop(0,"#0e1030"); g.addColorStop(.55,"#1b1c46"); g.addColorStop(1,"#3a3160");
+  x.fillStyle=g; x.fillRect(0,0,W,H);
+  // hafif ışık
+  const rg=x.createRadialGradient(W/2,H*0.9,50,W/2,H*0.9,W); rg.addColorStop(0,"rgba(242,200,121,.18)"); rg.addColorStop(1,"rgba(242,200,121,0)");
+  x.fillStyle=rg; x.fillRect(0,0,W,H);
+  x.textAlign="center";
+  let y, refText=c.ref||"";
+  if(c.arabic){ y=430; x.fillStyle="#eef0ff"; x.font="72px 'Amiri', serif"; x.fillText(c.arabic,W/2,y); y+=150;
+    x.fillStyle="#eef0ff"; x.font="italic 46px 'Lora', serif"; y=_wrap(x,c.meal,W/2,y,880,64)+40; refText=c.ref||""; }
+  else {
+    let body;
+    if(c.orijinal){ body=c.orijinal; refText=c.kaynak||c.ref||""; }        // Risale: orijinal metinden kart
+    else if(c.temsil){ body=c.temsil.text; refText=c.temsil.ref||""; }
+    else { body=c.sade||c.intro||""; refText=c.ref||""; }
+    y=360; x.fillStyle="#d7dbff"; x.font="italic 44px 'Lora', serif"; y=_wrap(x,body,W/2,y,880,62)+40;
+  }
+  x.fillStyle="#f2c879"; x.font="34px 'Mulish', sans-serif"; x.fillText(refText,W/2,y+30);
+  // marka: damla logo + URL (en altta)
+  const drop=new Path2D("M50 10 C64 30 80 45 80 60 A30 30 0 1 1 20 60 C20 45 36 30 50 10 Z");
+  x.save(); const ls=0.44, lw=100*ls; x.translate(W/2-lw/2,H-166); x.scale(ls,ls); x.fillStyle="#f2c879"; x.fill(drop); x.restore();
+  x.fillStyle="rgba(238,240,255,.62)"; x.font="600 30px 'Mulish', sans-serif"; x.fillText("www.keshf.online",W/2,H-58);
+  const a=document.createElement("a"); a.download="kesf-kart.png"; a.href=cv.toDataURL("image/png"); a.click();
+}
+
+// ---- Ruh Hali Seyri (grafik) ----
+const EMO_COLORS={kaygi:"#9db8f0",huzun:"#8f9be0",ofke:"#f4a988",yalnizlik:"#c7a3e0",yeis:"#8fb0d8",tukenmislik:"#e6c67e",korku:"#8fe0c4"};
+let trendDays=14;
+document.getElementById("trendOpen").onclick=()=>{ document.getElementById("trend").classList.add("open"); loadTrend(); };
+document.getElementById("trendClose").onclick=()=>document.getElementById("trend").classList.remove("open");
+document.getElementById("range").querySelectorAll("button").forEach(b=>b.onclick=()=>{
+  document.getElementById("range").querySelectorAll("button").forEach(x=>x.classList.remove("on")); b.classList.add("on");
+  trendDays=+b.dataset.d; loadTrend();
+});
+async function loadTrend(){
+  const t=await jget("/api/mood/trend?days="+trendDays);
+  const empty=Object.keys(t.totals||{}).length===0;
+  document.getElementById("tempty").style.display=empty?"block":"none";
+  document.getElementById("thint").textContent=t.summary && t.summary.hint ? t.summary.hint : "";
+  document.getElementById("thint").style.display=(t.summary&&t.summary.hint)?"block":"none";
+  document.getElementById("barChart").innerHTML=empty?"":barChartSVG(t.series);
+  document.getElementById("lineChart").innerHTML=empty?"":lineChartSVG(t.series);
+  document.getElementById("legend").innerHTML=empty?"":Object.keys(t.totals).map(m=>
+    `<span class="li"><span class="sw" style="background:${EMO_COLORS[m]||'#888'}"></span>${(TAX[m]&&TAX[m].label)||m} · ${t.totals[m]}</span>`).join("");
+}
+function barChartSVG(series){
+  const W=640,H=220,padL=10,padR=10,padB=26,padT=12,n=series.length;
+  const plotW=W-padL-padR,plotH=H-padT-padB,baseY=H-padB;
+  const slot=plotW/n,barW=Math.min(slot*0.62,26);
+  const maxE=Math.max(1,...series.map(s=>s.entries));
+  const order=["kaygi","korku","yeis","yalnizlik","ofke","huzun","tukenmislik"];
+  let bars="",labels="";
+  series.forEach((s,i)=>{
+    const cx=padL+slot*i+slot/2; let y=baseY;
+    order.forEach(m=>{ const cnt=s.by_main[m]||0; if(!cnt)return; const hh=cnt/maxE*plotH; y-=hh;
+      bars+=`<rect x="${(cx-barW/2).toFixed(1)}" y="${y.toFixed(1)}" width="${barW.toFixed(1)}" height="${hh.toFixed(1)}" fill="${EMO_COLORS[m]}" rx="2" opacity="0.92"/>`; });
+    if(i%Math.ceil(n/8||1)===0||i===n-1) labels+=`<text x="${cx.toFixed(1)}" y="${H-8}" fill="#8b8fc4" font-size="10" text-anchor="middle">${s.label}</text>`;
+  });
+  return `<svg viewBox="0 0 ${W} ${H}" role="img"><line x1="${padL}" y1="${baseY}" x2="${W-padR}" y2="${baseY}" stroke="rgba(255,255,255,.12)"/>${bars}${labels}</svg>`;
+}
+function lineChartSVG(series){
+  const W=640,H=150,padL=26,padR=10,padB=22,padT=12,n=series.length;
+  const plotW=W-padL-padR,plotH=H-padT-padB,midY=padT+plotH/2;
+  const xOf=i=>padL+(n<=1?plotW/2:plotW*i/(n-1));
+  const yOf=v=>midY-(v*plotH/2);
+  const pts=series.map((s,i)=>({i,v:s.huzur})).filter(p=>p.v!==null&&p.v!==undefined);
+  let path=""; pts.forEach((p,k)=>{ path+=(k?"L":"M")+xOf(p.i).toFixed(1)+" "+yOf(p.v).toFixed(1)+" "; });
+  const dots=pts.map(p=>`<circle cx="${xOf(p.i).toFixed(1)}" cy="${yOf(p.v).toFixed(1)}" r="3.2" fill="#f2c879"/>`).join("");
+  const grid=[1,0,-1].map(v=>`<line x1="${padL}" y1="${yOf(v).toFixed(1)}" x2="${W-padR}" y2="${yOf(v).toFixed(1)}" stroke="rgba(255,255,255,${v===0?.14:.06})" ${v===0?'':'stroke-dasharray="3 4"'}/><text x="2" y="${(yOf(v)+3).toFixed(1)}" fill="#8b8fc4" font-size="10">${v>0?"+1":v}</text>`).join("");
+  const line=pts.length>1?`<path d="${path}" fill="none" stroke="#f2c879" stroke-width="2"/>`:"";
+  return `<svg viewBox="0 0 ${W} ${H}" role="img">${grid}${line}${dots}</svg>`;
+}
+
+// huzur koleksiyonu drawer
+document.getElementById("favOpen").onclick=async()=>{
+  const list=await jget("/api/favorites"); const box=document.getElementById("favList"); box.innerHTML="";
+  if(!list.length) box.innerHTML='<p style="color:var(--ink-mute);margin-top:16px;">Henüz favori yok. Kartlardaki ☆ ile ekleyebilirsin.</p>';
+  list.forEach(f=>{ const p=f.payload; const d=document.createElement("div"); d.className="fav-item";
+    d.innerHTML=(p.arabic?`<div style="font-family:'Amiri';direction:rtl;text-align:right;font-size:1.3rem">${p.arabic}</div>`:"")+
+      `<div>${p.meal||p.sade||p.title||""}</div><div class="fref">${p.ref||p.layer_sub||""}</div>`;
+    const eb=document.createElement("button"); eb.className="export"; eb.textContent="📸 Kart olarak kaydet"; eb.onclick=()=>exportCard(p);
+    d.appendChild(eb); box.appendChild(d); });
+  document.getElementById("drawer").classList.add("open");
+};
+document.getElementById("drawerClose").onclick=()=>document.getElementById("drawer").classList.remove("open");
+</script>
+</body>
+</html>

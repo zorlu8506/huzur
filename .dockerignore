@@ -1,0 +1,13 @@
+# Deploy imajına GİRMEYECEKLER (küçük build context + hafif imaj)
+**/.venv
+.venv/
+_yedek-tasarim/
+**/__pycache__/
+*.pyc
+**/*.db
+*.bak
+*.log
+.cache/
+brand/
+*.onceki-tasarim.bak
+*.koyu-tasarim.bak

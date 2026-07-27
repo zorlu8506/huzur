@@ -1,0 +1,17 @@
+# python
+__pycache__/
+*.pyc
+
+# sanal ortamlar (her seviyedeki .venv)
+.venv/
+
+# veritabanı (kişisel/yerel — deploy'da otomatik oluşur)
+data/*.db
+
+# yedekler & loglar
+_yedek-tasarim/
+*.bak
+*.log
+
+# model / hf cache
+.cache/
