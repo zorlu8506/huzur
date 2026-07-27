@@ -18,13 +18,18 @@ COPY data/     ./data/
 #    (HF Spaces konteyneri uid 1000 ile çalışır; bu yüzden 777)
 ENV SEKINE_EMBEDDER=fastembed \
     FASTEMBED_CACHE_PATH=/app/.cache/fastembed \
-    HF_HOME=/app/.cache
+    HF_HOME=/app/.cache \
+    OMP_NUM_THREADS=1 \
+    FE_THREADS=1 \
+    MALLOC_ARENA_MAX=2 \
+    PYTHONUNBUFFERED=1
 RUN mkdir -p /app/.cache/fastembed && chmod -R 777 /app/.cache /app/data
 
 # 4) Modeli imaja göm → ilk istek beklemez (aksi halde ilk /api/match'te ~1 dk iner)
 RUN python -c "from fastembed import TextEmbedding; TextEmbedding(model_name='sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')" && \
     chmod -R 777 /app/.cache
 
+# Render $PORT verir; HF Spaces'te ise tanımsız → 7860'a düşer.
 EXPOSE 7860
 WORKDIR /app/backend
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "7860"]
+CMD uvicorn app:app --host 0.0.0.0 --port ${PORT:-7860}

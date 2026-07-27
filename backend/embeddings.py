@@ -64,7 +64,9 @@ class _FastEmbed:
         from fastembed import TextEmbedding
         import numpy as np
         self._np = np
-        self.model = TextEmbedding(model_name=model_name)
+        th = os.environ.get("FE_THREADS")           # düşük RAM'li host için 1 (opsiyonel)
+        kwargs = {"threads": int(th)} if th else {}
+        self.model = TextEmbedding(model_name=model_name, **kwargs)
     def encode(self, texts):
         if isinstance(texts, str):
             texts = [texts]
