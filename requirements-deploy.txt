@@ -1,8 +1,7 @@
-# Canlı (HF Spaces / Docker) bağımlılıkları — torch YOK, hafif ONNX yolu.
+# Canlı (Render / HF Spaces) bağımlılıkları — API embedding yolu.
+# Embedding modeli SUNUCUDA TUTULMAZ; sorgular Gemini API'ye gider (embed_api.py,
+# yalnızca stdlib). Bu yüzden fastembed/onnxruntime/torch YOK -> uygulama ~80 MB,
+# Render Free (512 MB) rahat sığar, soğuk başlangıç anında.
 fastapi>=0.110
 uvicorn[standard]>=0.27
 pydantic>=2
-# Anlamsal eşleştirme (torch'suz, ONNX): yereldeki ile aynı davranış için pinli.
-fastembed==0.8.0
-onnxruntime==1.28.0
-numpy

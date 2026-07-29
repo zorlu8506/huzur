@@ -12,6 +12,19 @@ import os, json, pathlib
 from embeddings import get_embedder, cosine
 
 DATA = pathlib.Path(__file__).resolve().parent.parent / "data"
+VECTORS = DATA / "seed_vectors.json"
+
+
+def build_docs(tax):
+    """Yönlendirme belgeleri: her seed cümlesi + etiket + not -> (main, sub) etiketli.
+    build_vectors.py ile router AYNI belge kümesini üretsin diye burada tek yerde tutulur."""
+    docs, meta = [], []
+    for mk, mv in tax.items():
+        for sk, sv in mv["subs"].items():
+            for phrase in sv.get("seeds", []) + [sv["label"], sv["note"]]:
+                docs.append(phrase)
+                meta.append((mk, sk))
+    return docs, meta
 
 
 class SemanticRouter:
@@ -22,13 +35,20 @@ class SemanticRouter:
         self._build()
 
     def _build(self):
-        docs, meta = [], []
-        for mk, mv in self.tax.items():
-            for sk, sv in mv["subs"].items():
-                # her seed cümlesi + etiket + not bir yönlendirme belgesi olur
-                for phrase in sv.get("seeds", []) + [sv["label"], sv["note"]]:
-                    docs.append(phrase)
-                    meta.append((mk, sk))
+        # 1) Önceden hesaplanmış vektörler diskte varsa VE aynı embedding uzayından
+        #    geliyorsa (imza eşleşmesi) onları kullan — seed'leri açılışta yeniden
+        #    embed etmeyiz (API modunda cold-start'ı ~0'a indirir, çağrı harcamaz).
+        sig = getattr(self.emb, "signature", None)
+        if sig and VECTORS.exists():
+            blob = json.loads(VECTORS.read_text(encoding="utf-8"))
+            if blob.get("signature") == sig:
+                self._index = [(r["main"], r["sub"], r["vec"]) for r in blob["index"]]
+                print(f"[router] {len(self._index)} vektör diskten yüklendi (imza={sig}).")
+                return
+            print(f"[router] seed_vectors.json imzası uyuşmadı "
+                  f"({blob.get('signature')} != {sig}); canlı üretiliyor.")
+        # 2) Aksi halde (yerel geliştirme / fastembed) seed'leri anında embed et.
+        docs, meta = build_docs(self.tax)
         vecs = self.emb.encode(docs)
         self._index = [(m[0], m[1], v) for m, v in zip(meta, vecs)]
         print(f"[router] {len(self._index)} yönlendirme vektörü hazır "

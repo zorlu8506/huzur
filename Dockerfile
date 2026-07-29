@@ -1,5 +1,7 @@
-# Keşf — Hugging Face Spaces (Docker)
-# Hafif "fastembed / ONNX" yolu: torch YOK, ~220 MB model, 512 MB RAM'e sığar.
+# Keşf — Render / HF Spaces (Docker)
+# API embedding yolu: model sunucuda TUTULMAZ (Gemini API). Uygulama ~80 MB,
+# 512 MB RAM'e rahat sığar, soğuk başlangıç anında. GEMINI_API_KEY host panelinde
+# secret olarak verilir (imaja gömülmez).
 FROM python:3.11-slim
 
 WORKDIR /app
@@ -9,25 +11,16 @@ COPY requirements-deploy.txt ./
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements-deploy.txt
 
-# 2) Uygulama kodu + veri (content.json / taxonomy.json)
+# 2) Uygulama kodu + veri (content.json / taxonomy.json / seed_vectors.json)
 COPY backend/  ./backend/
 COPY frontend/ ./frontend/
 COPY data/     ./data/
 
-# 3) fastembed'i seç + yazılabilir cache/db dizinleri
+# 3) API embedder'ı seç + yazılabilir db dizini
 #    (HF Spaces konteyneri uid 1000 ile çalışır; bu yüzden 777)
-ENV SEKINE_EMBEDDER=fastembed \
-    FASTEMBED_CACHE_PATH=/app/.cache/fastembed \
-    HF_HOME=/app/.cache \
-    OMP_NUM_THREADS=1 \
-    FE_THREADS=1 \
-    MALLOC_ARENA_MAX=2 \
+ENV SEKINE_EMBEDDER=jina \
     PYTHONUNBUFFERED=1
-RUN mkdir -p /app/.cache/fastembed && chmod -R 777 /app/.cache /app/data
-
-# 4) Modeli imaja göm → ilk istek beklemez (aksi halde ilk /api/match'te ~1 dk iner)
-RUN python -c "from fastembed import TextEmbedding; TextEmbedding(model_name='sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2')" && \
-    chmod -R 777 /app/.cache
+RUN chmod -R 777 /app/data
 
 # Render $PORT verir; HF Spaces'te ise tanımsız → 7860'a düşer.
 EXPOSE 7860

@@ -1,19 +1,16 @@
 # Render Blueprint — Keşf (Docker, ücretsiz katman)
 # Render panelinde: New + → Blueprint → bu repoyu seç.
+# API embedding yolu: model sunucuda yok -> Free (512 MB) RAHAT sığar.
 services:
   - type: web
     name: kesf
     runtime: docker
-    plan: free                 # 512 MB RAM — model sınırda; OOM olursa plan yükselt ya da API yoluna geç
+    plan: free
     dockerfilePath: ./Dockerfile
     healthCheckPath: /api/health
     autoDeploy: true
     envVars:
       - key: SEKINE_EMBEDDER
-        value: fastembed        # torch'suz ONNX yolu
-      - key: FE_THREADS
-        value: "1"              # düşük RAM için tek thread
-      - key: OMP_NUM_THREADS
-        value: "1"
-      - key: MALLOC_ARENA_MAX
-        value: "2"              # Linux bellek parçalanmasını azaltır
+        value: jina
+      - key: JINA_API_KEY
+        sync: false          # gizli: Render panelinde Environment'a elle gir (commit'lenmez)

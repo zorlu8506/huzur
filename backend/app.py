@@ -74,7 +74,10 @@ class FavIn(BaseModel):
 @app.get("/api/health")
 def health():
     r = _router()
-    return {"ok": True, "fallback_embedder": getattr(r.emb, "is_fallback", False)}
+    return {"ok": True,
+            "fallback_embedder": getattr(r.emb, "is_fallback", False),
+            "embedder": getattr(r.emb, "signature", type(r.emb).__name__),
+            "routes": len(r._index)}
 
 
 @app.get("/api/taxonomy")

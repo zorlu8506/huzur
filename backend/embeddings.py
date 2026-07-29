@@ -87,6 +87,16 @@ def get_embedder():
     mode = os.environ.get("SEKINE_EMBEDDER", "").lower()
     if mode == "hash":
         _embedder = _HashEmbedder(); return _embedder
+    if mode in ("jina", "api"):
+        from embed_api import JinaEmbedder
+        _embedder = JinaEmbedder()
+        print(f"[embeddings] Jina API embedder: {_embedder.signature}")
+        return _embedder
+    if mode == "gemini":
+        from embed_api import GeminiEmbedder
+        _embedder = GeminiEmbedder()
+        print(f"[embeddings] Gemini API embedder: {_embedder.signature}")
+        return _embedder
     if mode == "fastembed":
         _embedder = _FastEmbed(FE_MODEL)
         print(f"[embeddings] fastembed (onnx) yüklendi: {FE_MODEL}")
