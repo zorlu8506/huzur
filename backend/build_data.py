@@ -172,7 +172,7 @@ TAX = {
      "seeds":["değersiz hissediyorum","işe yaramaz biriyim","hiçbir şeyi beceremiyorum","kimse bana değer vermiyor"],
      "nefis":["duyusal"],"akil":["kanit","uc_iyi"],"kalp":["sefkat_teselli","marifetullah"],"ruh":["duha3","duha5","kaf16"]},
    "anlamsizlik":{"label":"Anlamsızlık / boşluk","note":"Boşluk hissi, aslında bir anlam arayışıdır. Yönü birlikte bulalım.",
-     "seeds":["her şey anlamsız","içimde bir boşluk var","neden yaşadığımı bilmiyorum","hiçbir şey anlam ifade etmiyor"],
+     "seeds":["her şey anlamsız","içimde bir boşluk var","neden yaşadığımı bilmiyorum","hiçbir şey anlam ifade etmiyor","hayat anlamını yitirdi, içim bomboş","yaptığım hiçbir şeyin anlamı kalmadı"],
      "nefis":["ground"],"akil":["degerler","uc_iyi"],"kalp":["an_yasama","ic_dunya"],"ruh":["duha5","bakara152"]},
  }},
  "ofke":{"label":"Öfke","subs":{
@@ -194,7 +194,7 @@ TAX = {
      "seeds":["kimse beni anlamıyor","anlaşılmıyorum","yalnız hissediyorum kalabalıkta","kendimi kimseye anlatamıyorum"],
      "nefis":["ground"],"akil":["defusion","degerler"],"kalp":["marifetullah","ic_dunya"],"ruh":["bakara186","kaf16"]},
    "manevi":{"label":"Manevi yalnızlık","note":"Kalabalıkta bile hissedilen o boşluğu bir yakınlıkla dolduralım.",
-     "seeds":["manevi bir boşluk","içsel yalnızlık","ruhen yalnızım","boşluktayım"],
+     "seeds":["içsel yalnızlık","ruhen yalnızım","Allah'a uzak, manen yalnız hissediyorum","maneviyatımdan kopmuş hissediyorum"],
      "nefis":["b478"],"akil":["uc_iyi"],"kalp":["marifetullah","unsiyet"],"ruh":["bakara186","kaf16","hadid4"]},
  }},
  "yeis":{"label":"Umutsuzluk","subs":{
