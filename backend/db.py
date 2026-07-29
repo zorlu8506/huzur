@@ -5,7 +5,7 @@ Kalıcı veri (SQLite, stdlib — ek kurulum yok).
 - favorites: 'Şifa Koleksiyonum / Sığınak'
 Basit tutuldu: tek kullanıcı (local). Çok kullanıcıda user_id kolonu eklenir.
 """
-import sqlite3, pathlib, datetime, json
+import sqlite3, pathlib, datetime, json, hashlib
 
 DB = pathlib.Path(__file__).resolve().parent.parent / "data" / "sekine.db"
 
@@ -28,6 +28,10 @@ def init():
           id INTEGER PRIMARY KEY, ts TEXT, main TEXT, sub TEXT,
           layer TEXT, content_id TEXT, payload TEXT,
           UNIQUE(layer, content_id));
+        CREATE TABLE IF NOT EXISTS visits(
+          id INTEGER PRIMARY KEY, ts TEXT, day TEXT, path TEXT,
+          visitor TEXT, ua TEXT, referrer TEXT, is_bot INTEGER DEFAULT 0);
+        CREATE INDEX IF NOT EXISTS idx_visits_day ON visits(day);
         """)
 
 
@@ -117,3 +121,111 @@ def mood_trend(days=14):
         })
     return {"days": days, "series": series, "totals": totals,
             "summary": mood_summary(days)}
+
+
+# ============================ ZİYARET İSTATİSTİĞİ ============================
+# Gizlilik: ham IP saklanmaz. Ziyaretçi kimliği = sha256(ip|ua|gün) ilk 16 hane
+# (günlük rotasyon → tekil sayımı yapılır ama kişi izlenmez).
+_BOT_UA = ("bot", "spider", "crawl", "slurp", "bing", "google", "yandex", "baidu",
+           "duckduck", "facebookexternalhit", "whatsapp", "telegram", "headless",
+           "preview", "monitor", "uptime", "curl", "wget", "python-requests", "go-http")
+
+
+def _is_bot(ua):
+    u = (ua or "").lower()
+    return 1 if any(b in u for b in _BOT_UA) else 0
+
+
+def _visitor_id(ip, ua):
+    day = datetime.date.today().isoformat()
+    return hashlib.sha256(f"{ip}|{ua}|{day}".encode()).hexdigest()[:16]
+
+
+def _ref_host(ref):
+    """Referrer'ı okunur kaynağa indir (host). Boş/kendi domaini → 'Doğrudan'."""
+    if not ref:
+        return "Doğrudan / kayıtsız"
+    try:
+        h = ref.split("//", 1)[-1].split("/", 1)[0].lower()
+        if h.startswith("www."):
+            h = h[4:]
+        if "keshf" in h:
+            return "Doğrudan / kayıtsız"
+        return h or "Doğrudan / kayıtsız"
+    except Exception:
+        return "Doğrudan / kayıtsız"
+
+
+def log_visit(path, ip, ua, referrer):
+    with _conn() as c:
+        c.execute("INSERT INTO visits(ts,day,path,visitor,ua,referrer,is_bot) VALUES(?,?,?,?,?,?,?)",
+                  (_now(), datetime.date.today().isoformat(), (path or "/")[:120],
+                   _visitor_id(ip, ua), (ua or "")[:300], (referrer or "")[:300], _is_bot(ua)))
+
+
+def visit_stats(days=30, include_bots=False):
+    today = datetime.date.today()
+    dates = [(today - datetime.timedelta(days=i)) for i in range(days - 1, -1, -1)]
+    since = dates[0].isoformat()
+    bf = "" if include_bots else "AND is_bot=0"
+
+    def _rng(n):
+        s = (today - datetime.timedelta(days=n - 1)).isoformat()
+        with _conn() as c:
+            r = c.execute(f"SELECT COUNT(*) v, COUNT(DISTINCT visitor) u FROM visits "
+                          f"WHERE day>=? {bf}", (s,)).fetchone()
+        return {"visits": r["v"] or 0, "uniq": r["u"] or 0}
+
+    with _conn() as c:
+        drows = c.execute(f"""SELECT day, COUNT(*) visits, COUNT(DISTINCT visitor) uniq
+                              FROM visits WHERE day>=? {bf} GROUP BY day""", (since,)).fetchall()
+        total = c.execute(f"SELECT COUNT(*) v, COUNT(DISTINCT visitor) u FROM visits "
+                          f"WHERE 1=1 {bf}").fetchone()
+        refs = c.execute(f"""SELECT referrer, COUNT(*) n FROM visits
+                             WHERE day>=? {bf} GROUP BY referrer""", (since,)).fetchall()
+        uarows = c.execute(f"SELECT ua FROM visits WHERE day>=? {bf}", (since,)).fetchall()
+        botcnt = c.execute("SELECT COUNT(*) n FROM visits WHERE day>=? AND is_bot=1",
+                           (since,)).fetchone()["n"]
+
+    by_day = {r["day"]: {"visits": r["visits"], "uniq": r["uniq"]} for r in drows}
+    series = [{"date": d.isoformat(), "label": d.strftime("%d.%m"),
+               "visits": by_day.get(d.isoformat(), {}).get("visits", 0),
+               "uniq": by_day.get(d.isoformat(), {}).get("uniq", 0)} for d in dates]
+
+    # referrer'ları host bazında topla
+    ref_agg = {}
+    for r in refs:
+        host = _ref_host(r["referrer"])
+        ref_agg[host] = ref_agg.get(host, 0) + r["n"]
+    referrers = sorted([{"kaynak": k, "n": v} for k, v in ref_agg.items()],
+                       key=lambda x: -x["n"])[:8]
+
+    # cihaz dağılımı (UA)
+    mob = desk = 0
+    for r in uarows:
+        u = (r["ua"] or "").lower()
+        if any(k in u for k in ("mobi", "android", "iphone", "ipad", "ipod")):
+            mob += 1
+        else:
+            desk += 1
+
+    return {"days": days, "series": series,
+            "kpi": {"today": _rng(1), "d7": _rng(7), "d30": _rng(30),
+                    "total": {"visits": total["v"] or 0, "uniq": total["u"] or 0}},
+            "referrers": referrers, "device": {"mobile": mob, "desktop": desk},
+            "bots_excluded": botcnt}
+
+
+def engagement_stats(days=30):
+    """Uygulama etkileşimi: en çok seçilen duygular, feedback dağılımı, favori/eşleşme sayısı."""
+    since = (datetime.date.today() - datetime.timedelta(days=days - 1)).isoformat()
+    with _conn() as c:
+        moods = c.execute("""SELECT main, COUNT(*) n FROM mood_log WHERE date(ts)>=?
+                             GROUP BY main ORDER BY n DESC""", (since,)).fetchall()
+        fb = c.execute("""SELECT value, COUNT(*) n FROM feedback WHERE date(ts)>=?
+                          GROUP BY value""", (since,)).fetchall()
+        favs = c.execute("SELECT COUNT(*) n FROM favorites").fetchone()
+        matches = c.execute("SELECT COUNT(*) n FROM mood_log WHERE date(ts)>=?", (since,)).fetchone()
+    return {"moods": [dict(r) for r in moods],
+            "feedback": {str(r["value"]): r["n"] for r in fb},
+            "favorites": favs["n"] or 0, "matches": matches["n"] or 0}

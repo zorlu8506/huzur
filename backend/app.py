@@ -4,8 +4,8 @@ Sekine — FastAPI backend.
 Arayüz:    http://localhost:8000/
 Sağlık:    http://localhost:8000/api/health
 """
-import pathlib
-from fastapi import FastAPI
+import pathlib, os
+from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
@@ -17,6 +17,26 @@ from router_semantic import SemanticRouter
 
 app = FastAPI(title="Sekine API")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+
+# Admin paneli şifresi — Render'da ADMIN_SIFRE secret olarak verilir.
+# (Ayarlanmazsa geliştirme için varsayılan; CANLIDA MUTLAKA env ile değiştir.)
+ADMIN_KEY = os.environ.get("ADMIN_SIFRE") or "kesf-admin"
+
+
+@app.middleware("http")
+async def _track_visit(request: Request, call_next):
+    response = await call_next(request)
+    # sadece ana sayfa yüklemelerini say (statik varlıkları/asset'leri değil)
+    try:
+        if request.method == "GET" and request.url.path == "/":
+            ip = (request.headers.get("cf-connecting-ip")
+                  or request.headers.get("x-forwarded-for", "").split(",")[0].strip()
+                  or (request.client.host if request.client else ""))
+            db.log_visit("/", ip, request.headers.get("user-agent", ""),
+                         request.headers.get("referer", ""))
+    except Exception:
+        pass  # istatistik hatası siteyi etkilemesin
+    return response
 
 ROUTER = None  # tembel yükleme (model ilk istekte yüklensin, açılış hızlansın)
 
@@ -140,10 +160,31 @@ def favorites():
     return db.list_favorites()
 
 
+# ---- admin: ziyaret istatistikleri (şifre korumalı) ----
+def _require_admin(key: str):
+    if not key or key != ADMIN_KEY:
+        raise HTTPException(status_code=401, detail="Yetkisiz")
+
+
+@app.get("/api/admin/stats")
+def admin_stats(key: str = "", days: int = 30, bots: int = 0):
+    _require_admin(key)
+    return {
+        "visits": db.visit_stats(days, include_bots=bool(bots)),
+        "engagement": db.engagement_stats(days),
+        "labels": {mk: mv["label"] for mk, mv in content.taxonomy_public().items()},
+    }
+
+
 # ---- statik arayüz ----
 FRONT = pathlib.Path(__file__).resolve().parent.parent / "frontend"
 if FRONT.exists():
     @app.get("/")
     def index():
         return FileResponse(str(FRONT / "index.html"))
+
+    @app.get("/admin")
+    def admin_page():
+        return FileResponse(str(FRONT / "admin.html"))
+
     app.mount("/", StaticFiles(directory=str(FRONT)), name="frontend")

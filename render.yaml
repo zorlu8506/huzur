@@ -14,3 +14,5 @@ services:
         value: jina
       - key: JINA_API_KEY
         sync: false          # gizli: Render panelinde Environment'a elle gir (commit'lenmez)
+      - key: ADMIN_SIFRE
+        sync: false          # /admin paneli şifresi — Render Environment'ta ayarla (yoksa varsayılan 'kesf-admin')
