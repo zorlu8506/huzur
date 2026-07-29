@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Keşf — Kendini Keşfet</title>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -70,7 +70,8 @@
     padding:9px 12px 9px 20px;margin-bottom:8px;backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);box-shadow:var(--shadow-md);}
   .top>span:first-child{font-size:.74rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:800;}
   .top>div{display:flex;gap:8px;flex-wrap:wrap;}
-  .top button{font-family:'Mulish';letter-spacing:.02em;text-transform:none;font-size:.82rem;font-weight:600;color:var(--ink-soft);background:rgba(255,255,255,.5);border:1px solid var(--glass-line-soft);border-radius:var(--r-pill);padding:7px 15px;cursor:pointer;transition:all .3s var(--ease);}
+  .top button{display:inline-flex;align-items:center;gap:6px;font-family:'Mulish';letter-spacing:.02em;text-transform:none;font-size:.82rem;font-weight:600;color:var(--ink-soft);background:rgba(255,255,255,.5);border:1px solid var(--glass-line-soft);border-radius:var(--r-pill);padding:7px 15px;cursor:pointer;transition:all .3s var(--ease);-webkit-tap-highlight-color:transparent;}
+  .top button .ic{font-size:1.02em;line-height:1;}
   .top button:hover{color:var(--ink);border-color:rgba(192,138,42,.5);background:rgba(224,178,94,.14);transform:translateY(-1px);}
   /* HERO — güçlü karşılama */
   .brand{position:relative;text-align:center;margin:0 auto;padding:clamp(24px,7vh,72px) 0 8px;}
@@ -196,7 +197,42 @@
   /* gece saatleri: seher yerine mum ışığı — yumuşak, sıcak, kısık */
   body.deepnight .sky{background:radial-gradient(120% 82% at 50% 116%,#f0d9a8 0%,rgba(240,217,168,0) 56%),linear-gradient(180deg,#e6ddce 0%,#eee2cd 60%,#f2e4c6 100%)!important;}
   body.deepnight{--ink-soft:#4c4f7d;}
-  @media(max-width:560px){.stage{padding:16px 16px 44px;}.brand{padding-top:16px;}.top{padding:8px 8px 8px 15px;}.top>span:first-child{font-size:.68rem;letter-spacing:.24em;}.top button{font-size:.76rem;padding:6px 12px;}.card{padding:22px 20px;}.brand .nur{margin-left:-80px;width:160px;}.nur{width:160px;height:160px;}}
+  /* ---------- MOBİL DÜZEN ---------- */
+  @media(max-width:600px){
+    html{scroll-padding-top:64px;}
+    .stage{padding:14px 14px calc(42px + env(safe-area-inset-bottom));}
+    .top{top:8px;padding:5px 6px 5px 14px;gap:8px;}
+    .top>span:first-child{font-size:.64rem;letter-spacing:.2em;}
+    .top button{font-size:.75rem;padding:6px 12px;}
+    .navbtns{gap:6px;justify-content:flex-end;}
+    .brand{padding:14px 0 6px;}
+    .brand .nur{margin-left:-78px;width:156px;height:156px;}
+    .nur{width:156px;height:156px;}
+    .brand-mark{width:90px;}
+    .hero-sub{margin-top:22px!important;}
+    h1{margin:16px 0 8px;}
+    .lead{font-size:1rem;}
+    .picker{margin-top:30px;}
+    .chip{padding:12px 18px;}                            /* dokunma hedefi ≈44px */
+    .chip.sub{padding:10px 16px;}
+    .divider{margin:26px auto 6px;}
+    .results{margin-top:34px;}
+    .card{padding:22px 18px;}
+    .fav{top:16px;right:16px;}
+    .micro{flex-wrap:wrap;gap:10px;}
+    .micro .done{width:100%;text-align:center;padding:11px;}
+    .feedback{padding:20px 18px;}
+    .care{padding:20px 18px;}
+    .drawer{width:100%;padding:24px 20px calc(24px + env(safe-area-inset-bottom));}
+    .sheet{padding:22px 16px 26px;}
+    .overlay{padding:22px 12px calc(22px + env(safe-area-inset-bottom));}
+  }
+  @media(max-width:480px){
+    .navbtns .tx{display:none;}                          /* dar ekran: temiz ikon menüsü */
+    .top button{padding:6px 9px;}
+    .top button .ic{font-size:1.02rem;}
+    .brand-slogan{font-size:1.05rem;}
+  }
 </style>
 </head>
 <body>
@@ -245,7 +281,7 @@
 </div>
 
 <main class="stage">
-  <div class="top"><span style="display:inline-flex;align-items:center;gap:7px"><svg viewBox="0 0 100 128" width="14" height="18" aria-hidden="true" style="overflow:visible"><path d="M50 10 C64 30 80 45 80 60 A30 30 0 1 1 20 60 C20 45 36 30 50 10 Z" fill="#f2c879"/></svg>Keşf</span><!--brand--><div style="display:flex;gap:8px"><button id="trendOpen">📈 Ruh Halim</button><button id="sndToggle">♪ Ses</button><button id="favOpen">★ Huzur Koleksiyonum</button></div></div>
+  <div class="top"><span style="display:inline-flex;align-items:center;gap:7px"><svg viewBox="0 0 100 128" width="14" height="18" aria-hidden="true" style="overflow:visible"><path d="M50 10 C64 30 80 45 80 60 A30 30 0 1 1 20 60 C20 45 36 30 50 10 Z" fill="#f2c879"/></svg>Keşf</span><!--brand--><div class="navbtns"><button id="trendOpen" title="Ruh Halim" aria-label="Ruh Halim"><span class="ic">📈</span><span class="tx">Ruh Halim</span></button><button id="favOpen" title="Huzur Koleksiyonum" aria-label="Huzur Koleksiyonum"><span class="ic">★</span><span class="tx">Huzur Koleksiyonum</span></button></div></div>
   <div class="brand">
     <div class="nur" id="nur"></div>
     <svg class="brand-mark" viewBox="0 0 100 128" role="img" aria-label="Keşf">
@@ -406,7 +442,7 @@ function toggleMakam(name,btn){
   makamAudio=new Audio(src); makamAudio.loop=true; makamAudio.volume=0.5;
   makamAudio.play().then(()=>{ btn.textContent="⏸ Duraklat"; btn.classList.add("on"); })
     .catch(()=>{ // dosya yoksa üretilen huzur müziğine düş (makam köküne göre)
-      if(!sndOn){ sndOn=true; document.getElementById("sndToggle").classList.add("on"); }
+      if(!sndOn){ sndOn=true; const _s=document.getElementById("sndToggle"); if(_s) _s.classList.add("on"); }
       startSound(name); btn.textContent="♪ (üretilen müzik)"; btn.classList.add("on"); });
 }
 
@@ -545,7 +581,8 @@ function scheduleBell(ms){ bellTimer=setTimeout(()=>{
 }, ms); }
 function stopNodes(){ sndNodes.forEach(n=>{try{n.stop&&n.stop()}catch(e){}}); sndNodes=[]; if(bellTimer){clearTimeout(bellTimer);bellTimer=null;} }
 function stopSound(){ if(sndMaster&&audioCtx){ const t=audioCtx.currentTime; sndMaster.gain.linearRampToValueAtTime(0,t+1.4); setTimeout(stopNodes,1500); } else stopNodes(); }
-document.getElementById("sndToggle").onclick=(e)=>{ sndOn=!sndOn; e.currentTarget.classList.toggle("on",sndOn);
+const _sndToggle=document.getElementById("sndToggle");
+if(_sndToggle) _sndToggle.onclick=(e)=>{ sndOn=!sndOn; e.currentTarget.classList.toggle("on",sndOn);
   if(sndOn) startSound(currentBundle&&currentBundle.makam&&currentBundle.makam.makam); else stopSound(); };
 
 // ---- ebru / akış tuvali: 1 dakikalık odak alanı (üretilen, telifsiz) ----
