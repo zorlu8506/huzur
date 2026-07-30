@@ -35,6 +35,15 @@ AYET = {
  "ibrahim7":{"ar":"لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ","meal":"Eğer şükrederseniz, elbette size (nimetimi) artırırım.","ref":"İbrahim, 7"},
  "bakara152":{"ar":"فَاذْكُرُونِي أَذْكُرْكُمْ","meal":"Öyleyse siz beni anın ki ben de sizi anayım.","ref":"Bakara, 152"},
  "hud6":{"ar":"وَمَا مِن دَابَّةٍ فِي الْأَرْضِ إِلَّا عَلَى اللَّهِ رِزْقُهَا","meal":"Yeryüzünde hiçbir canlı yoktur ki rızkı Allah'a ait olmasın.","ref":"Hûd, 6"},
+ # --- suçluluk/utanç, kıskançlık, şüphe için eklenenler ---
+ "nisa110":{"ar":"وَمَن يَعْمَلْ سُوءًا أَوْ يَظْلِمْ نَفْسَهُ ثُمَّ يَسْتَغْفِرِ اللَّهَ يَجِدِ اللَّهَ غَفُورًا رَّحِيمًا","meal":"Kim bir kötülük yapar veya nefsine zulmeder de sonra Allah'tan bağışlanma dilerse, Allah'ı çok bağışlayıcı ve esirgeyici bulur.","ref":"Nisâ, 110"},
+ "hud114":{"ar":"إِنَّ الْحَسَنَاتِ يُذْهِبْنَ السَّيِّئَاتِ","meal":"Şüphesiz iyilikler kötülükleri giderir.","ref":"Hûd, 114"},
+ "aliimran135":{"ar":"وَالَّذِينَ إِذَا فَعَلُوا فَاحِشَةً أَوْ ظَلَمُوا أَنفُسَهُمْ ذَكَرُوا اللَّهَ فَاسْتَغْفَرُوا لِذُنُوبِهِمْ","meal":"Onlar bir kötülük yaptıklarında ya da nefislerine zulmettiklerinde Allah'ı anıp hemen günahları için bağışlanma dilerler.","ref":"Âl-i İmran, 135"},
+ "tahrim8":{"ar":"يَا أَيُّهَا الَّذِينَ آمَنُوا تُوبُوا إِلَى اللَّهِ تَوْبَةً نَّصُوحًا","meal":"Ey iman edenler! Allah'a içtenlikle (nasûh) tevbe edin.","ref":"Tahrîm, 8"},
+ "felak5":{"ar":"وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ","meal":"Ve hased ettiği zaman hasetçinin şerrinden (Allah'a sığınırım).","ref":"Felak, 5"},
+ "nisa32":{"ar":"وَلَا تَتَمَنَّوْا مَا فَضَّلَ اللَّهُ بِهِ بَعْضَكُمْ عَلَىٰ بَعْضٍ","meal":"Allah'ın kiminizi kiminizden üstün kıldığı şeyleri (haset ederek) temenni etmeyin.","ref":"Nisâ, 32"},
+ "bakara2":{"ar":"ذَٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ هُدًى لِّلْمُتَّقِينَ","meal":"Bu, kendisinde şüphe olmayan, muttakiler için yol gösterici bir kitaptır.","ref":"Bakara, 2"},
+ "muhammed17":{"ar":"وَالَّذِينَ اهْتَدَوْا زَادَهُمْ هُدًى","meal":"Doğru yolu bulanların ise Allah hidayetlerini artırır.","ref":"Muhammed, 17"},
 }
 
 # ---------- RISALE-İ NUR havuzu (layer: kalp) ----------
@@ -63,6 +72,11 @@ RISALE = {
  "an_vazife":{"orijinal":"Yalnız her günün âlâmını çektirir, müterakim olmuş âlâmı unutturur.","kaynak":"Sözler, s.1174","sade":"İnsan bir günde yalnızca bir günü yaşayabilir; bütün ömrün yükünü bir güne sığdırmak olmayan bir ağırlığı taşımaktır. Bugünün vazifesini gör.","ref":"Ânın vazifesi teması"},
  "sukur":{"orijinal":"İşte, bu suretle oruç çok cihetlerle hakikî vazife-i insaniye olan şükrün anahtarı hükmüne geçer.","kaynak":"Mektubat, s.676","sade":"Şükür, elindekini görme sanatıdır; yokluğa değil varlığa bakmayı öğretir. Nefes almak, bir bardak su, bir aydınlık — fark edilmeyi bekleyen nimetlerdir.","ref":"Şükür teması"},
  "nimet_farketme":{"orijinal":"Hâlbuki, iftar vaktinde, o kuru ekmek, bir mü’minin nazarında çok kıymettar bir nimet-i İlâhiye olduğuna kuvve-i zaikası şahadet eder.","kaynak":"Mektubat, s.676","sade":"Yorgun kalp verilenleri değil verilmeyenleri sayar; oysa sayılamayacak kadar çok nimet her an sessizce çalışır. Bir tekini fark etmek kalbe nefes açar.","ref":"Nimeti fark etme teması"},
+ # --- suçluluk/utanç, kıskançlık, şüphe için eklenenler (orijinal/kaynak uzman onayı bekliyor, bkz. ic_dunya) ---
+ "tevbe_kapisi":{"sade":"Tevbe kapısı, kulun kendi kapattığından daha geniştir. Geçmişteki hatanın ağırlığı, bugünkü samimi bir dönüşü engelleyecek kadar büyük değildir. Kapı her an açık.","ref":"Tevbe kapısının genişliği teması"},
+ "mahcubiyet_rahmet":{"sade":"Allah'a karşı mahcup hissetmek, O'ndan uzaklaşmak için değil, O'na sığınmak için bir sebeptir. Kulun mahcubiyeti, Rabbin merhametini küçültmez; tam tersine ona duyulan ihtiyacı hatırlatır.","ref":"Mahcubiyet ve rahmet teması"},
+ "hased_sukur":{"sade":"Herkesin nasibi kendine göre biçilmiştir; başkasına verilen, senden alınmış değildir. Elindekine şükür, başkasınınkine göz dikmenin açtığı yarayı kapatır.","ref":"Hased karşısında şükür teması"},
+ "supheden_kurtulus":{"sade":"Kalbe gelen şüphe, çoğu zaman imanın söndüğü değil, imtihan edildiği andır. Ona karşı direnmek değil, zikir ve sebatla üstüne gitmemek şüpheyi zayıflatır.","ref":"Şüpheden kurtuluş teması"},
 }
 
 # ---------- SOMATİK havuzu (layer: nefis) ----------
@@ -118,6 +132,9 @@ MAKAM = {
  "yeis":{"makam":"Rast","etki":"neşe ve umut"},
  "tukenmislik":{"makam":"Rast","etki":"canlanma"},
  "korku":{"makam":"Rehavi / Hüseyni","etki":"gece zihnini dindirme"},
+ "suclu":{"makam":"Hicaz","etki":"tövbe ve arınma"},
+ "hased":{"makam":"Hüseyni","etki":"gönül ferahlığı ve şükür"},
+ "supheler":{"makam":"Saba","etki":"içe dönüş ve yakîn"},
 }
 
 # ---------- KISSA / TEMSİL havuzu (madde 5, Metafor Terapisi) ----------
@@ -223,6 +240,33 @@ TAX = {
    "vesvese":{"label":"Vesvese / takıntılı düşünce","note":"O düşünce senin değil; üstüne varmadıkça söner.",
      "seeds":["aklıma takılan bir düşünce","aklıma kötü kötü düşünceler geliyor durduramıyorum","istemsiz kötü düşünceler zihnimden geçip duruyor","zihnime gelen düşünceleri durduramıyorum","vesvese","sürekli aynı şeyi düşünüyorum","takıntı haline geldi"],
      "nefis":["box"],"akil":["defusion","kaygi_ertele"],"kalp":["vesvese_21","huzur_iman"],"ruh":["ali173","rad28"]},
+ }},
+ "suclu":{"label":"Suçluluk / Utanç","subs":{
+   "vicdan_azabi":{"label":"Vicdan azabı","note":"Vicdanın seni bir hatadan dolayı sızlatıyor. Onu susturmadan, dönüşe çevirelim.",
+     "seeds":["vicdanım beni rahat bırakmıyor","yaptığım şey vicdanımı sızlatıyor","içimde sürekli bir suçluluk duygusu var","o olayı düşündükçe içim burkuluyor","yaptığımdan dolayı huzursuzum ve rahat edemiyorum"],
+     "nefis":["box"],"akil":["mektup","kanit"],"kalp":["tevbe_kapisi","kendine_merhamet"],"ruh":["nisa110","hud114"]},
+   "utanma_mahcubiyet":{"label":"Utanç / mahcubiyet","note":"İnsanların önünde küçük düşme korkusu ağır bir yüktür. Değerini başkasının gözünde arama.",
+     "seeds":["çok utanıyorum","rezil oldum, herkesin önünde küçük düştüm","insanların önünde mahcup oldum","yüzüm kızarıyor utancımdan","herkes ne düşünür diye çok utanıyorum"],
+     "nefis":["duyusal","durus"],"akil":["yeniden","degerler"],"kalp":["kendine_merhamet","sefkat_teselli"],"ruh":["aliimran135"]},
+   "allaha_mahcubiyet":{"label":"Allah'a karşı mahcubiyet","note":"Günahından dolayı Allah'a yüzün olmadığını hissetmek, aslında O'na dönüşün başlangıcıdır.",
+     "seeds":["Allah'a karşı yüzüm yok","günahlarımdan dolayı Allah'a mahcubum","dua etmeye bile utanıyorum","Rabbime karşı çok mahcup hissediyorum","günahkarlığımdan dolayı ibadet etmeye yüzüm yok"],
+     "nefis":["b478"],"akil":["mektup"],"kalp":["mahcubiyet_rahmet","affedilme_rahmet"],"ruh":["tahrim8","nisa110"],"kissa":["yunus"]},
+ }},
+ "hased":{"label":"Kıskançlık","subs":{
+   "kiyaslama":{"label":"Başkasıyla kıyaslama","note":"Başkasının vitrinini kendi arka planınla kıyaslamak seni yorar. Elindekine dönelim.",
+     "seeds":["başkalarıyla kendimi kıyaslıyorum","onun sahip olduklarını çok istiyorum","herkes benden ileride sanki","sosyal medyada başkalarını görünce kendimi kötü hissediyorum","neden onda var da bende yok diye düşünüyorum"],
+     "nefis":["box"],"akil":["yeniden","uc_iyi"],"kalp":["hased_sukur","sukur"],"ruh":["nisa32","ibrahim7"]},
+   "hased_ici_yanma":{"label":"Hased / içten içe yanma","note":"Başkasının nimetine dayanamamak seni içten yakar. Şükür bu ateşi söndürür.",
+     "seeds":["onun başarısına dayanamıyorum","içim kıskançlıktan yanıyor","başkasının iyiliğine sevinemiyorum","kıskançlığımdan kendimden nefret ediyorum","onun elindekini kaybetmesini istercesine hissediyorum"],
+     "nefis":["fizyo","box"],"akil":["mektup","degerler"],"kalp":["hased_sukur","nimet_farketme"],"ruh":["felak5","nisa32"],"kissa":["ayna"]},
+ }},
+ "supheler":{"label":"Şüphe / İman Zayıflığı","subs":{
+   "iman_supheleri":{"label":"İnanç şüpheleri","note":"Kalbe gelen şüphe imanın bittiği an değil, sınandığı andır. Üstüne varmadan zikirle geçelim.",
+     "seeds":["Allah'ın varlığından şüphe ediyorum","inancımda şüpheler var","imanımdan emin olamıyorum","aklıma dini konularda şüpheler geliyor","inancımı sürekli sorguluyorum"],
+     "nefis":["box"],"akil":["defusion","kanit"],"kalp":["supheden_kurtulus","huzur_iman"],"ruh":["bakara2","muhammed17"],"kissa":["misafir"]},
+   "kalp_katiligi":{"label":"Kalp katılığı","note":"İbadette bir şey hissetmemek maneviyatın bittiği anlamına gelmez. Küçük bir dokunuş yeter.",
+     "seeds":["namaz kılarken hiçbir şey hissetmiyorum","kalbim katılaştı","ibadet ederken içim boş","dua ederken bir şey hissedemiyorum","maneviyatımı kaybettim gibi hissediyorum"],
+     "nefis":["ground"],"akil":["uc_iyi"],"kalp":["marifetullah","huzur_iman"],"ruh":["rad28","bakara152"]},
  }},
 }
 

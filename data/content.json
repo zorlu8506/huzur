@@ -109,6 +109,46 @@
       "ar": "وَمَا مِن دَابَّةٍ فِي الْأَرْضِ إِلَّا عَلَى اللَّهِ رِزْقُهَا",
       "meal": "Yeryüzünde hiçbir canlı yoktur ki rızkı Allah'a ait olmasın.",
       "ref": "Hûd, 6"
+    },
+    "nisa110": {
+      "ar": "وَمَن يَعْمَلْ سُوءًا أَوْ يَظْلِمْ نَفْسَهُ ثُمَّ يَسْتَغْفِرِ اللَّهَ يَجِدِ اللَّهَ غَفُورًا رَّحِيمًا",
+      "meal": "Kim bir kötülük yapar veya nefsine zulmeder de sonra Allah'tan bağışlanma dilerse, Allah'ı çok bağışlayıcı ve esirgeyici bulur.",
+      "ref": "Nisâ, 110"
+    },
+    "hud114": {
+      "ar": "إِنَّ الْحَسَنَاتِ يُذْهِبْنَ السَّيِّئَاتِ",
+      "meal": "Şüphesiz iyilikler kötülükleri giderir.",
+      "ref": "Hûd, 114"
+    },
+    "aliimran135": {
+      "ar": "وَالَّذِينَ إِذَا فَعَلُوا فَاحِشَةً أَوْ ظَلَمُوا أَنفُسَهُمْ ذَكَرُوا اللَّهَ فَاسْتَغْفَرُوا لِذُنُوبِهِمْ",
+      "meal": "Onlar bir kötülük yaptıklarında ya da nefislerine zulmettiklerinde Allah'ı anıp hemen günahları için bağışlanma dilerler.",
+      "ref": "Âl-i İmran, 135"
+    },
+    "tahrim8": {
+      "ar": "يَا أَيُّهَا الَّذِينَ آمَنُوا تُوبُوا إِلَى اللَّهِ تَوْبَةً نَّصُوحًا",
+      "meal": "Ey iman edenler! Allah'a içtenlikle (nasûh) tevbe edin.",
+      "ref": "Tahrîm, 8"
+    },
+    "felak5": {
+      "ar": "وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ",
+      "meal": "Ve hased ettiği zaman hasetçinin şerrinden (Allah'a sığınırım).",
+      "ref": "Felak, 5"
+    },
+    "nisa32": {
+      "ar": "وَلَا تَتَمَنَّوْا مَا فَضَّلَ اللَّهُ بِهِ بَعْضَكُمْ عَلَىٰ بَعْضٍ",
+      "meal": "Allah'ın kiminizi kiminizden üstün kıldığı şeyleri (haset ederek) temenni etmeyin.",
+      "ref": "Nisâ, 32"
+    },
+    "bakara2": {
+      "ar": "ذَٰلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ هُدًى لِّلْمُتَّقِينَ",
+      "meal": "Bu, kendisinde şüphe olmayan, muttakiler için yol gösterici bir kitaptır.",
+      "ref": "Bakara, 2"
+    },
+    "muhammed17": {
+      "ar": "وَالَّذِينَ اهْتَدَوْا زَادَهُمْ هُدًى",
+      "meal": "Doğru yolu bulanların ise Allah hidayetlerini artırır.",
+      "ref": "Muhammed, 17"
     }
   },
   "risale": {
@@ -241,6 +281,22 @@
       "kaynak": "Mektubat, s.676",
       "sade": "Yorgun kalp verilenleri değil verilmeyenleri sayar; oysa sayılamayacak kadar çok nimet her an sessizce çalışır. Bir tekini fark etmek kalbe nefes açar.",
       "ref": "Nimeti fark etme teması"
+    },
+    "tevbe_kapisi": {
+      "sade": "Tevbe kapısı, kulun kendi kapattığından daha geniştir. Geçmişteki hatanın ağırlığı, bugünkü samimi bir dönüşü engelleyecek kadar büyük değildir. Kapı her an açık.",
+      "ref": "Tevbe kapısının genişliği teması"
+    },
+    "mahcubiyet_rahmet": {
+      "sade": "Allah'a karşı mahcup hissetmek, O'ndan uzaklaşmak için değil, O'na sığınmak için bir sebeptir. Kulun mahcubiyeti, Rabbin merhametini küçültmez; tam tersine ona duyulan ihtiyacı hatırlatır.",
+      "ref": "Mahcubiyet ve rahmet teması"
+    },
+    "hased_sukur": {
+      "sade": "Herkesin nasibi kendine göre biçilmiştir; başkasına verilen, senden alınmış değildir. Elindekine şükür, başkasınınkine göz dikmenin açtığı yarayı kapatır.",
+      "ref": "Hased karşısında şükür teması"
+    },
+    "supheden_kurtulus": {
+      "sade": "Kalbe gelen şüphe, çoğu zaman imanın söndüğü değil, imtihan edildiği andır. Ona karşı direnmek değil, zikir ve sebatla üstüne gitmemek şüpheyi zayıflatır.",
+      "ref": "Şüpheden kurtuluş teması"
     }
   },
   "somatik": {
@@ -530,6 +586,18 @@
     "korku": {
       "makam": "Rehavi / Hüseyni",
       "etki": "gece zihnini dindirme"
+    },
+    "suclu": {
+      "makam": "Hicaz",
+      "etki": "tövbe ve arınma"
+    },
+    "hased": {
+      "makam": "Hüseyni",
+      "etki": "gönül ferahlığı ve şükür"
+    },
+    "supheler": {
+      "makam": "Saba",
+      "etki": "içe dönüş ve yakîn"
     }
   }
 }

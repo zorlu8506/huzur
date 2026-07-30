@@ -14,6 +14,13 @@ CASES = [
     ("kendimi affedemiyorum, yaptığım hata aklımdan çıkmıyor", "yeis/affedememe"),
     ("birden kalbim hızlandı, boğuluyormuş gibi oldum", "korku/panik"),
     ("aklıma kötü kötü düşünceler geliyor durduramıyorum", "korku/vesvese"),
+    ("yaptığım şey vicdanımı sızlatıyor, içim rahat değil", "suclu/vicdan_azabi"),
+    ("herkesin önünde çok utandım, rezil oldum", "suclu/utanma_mahcubiyet"),
+    ("günahlarımdan dolayı Allah'a karşı çok mahcubum", "suclu/allaha_mahcubiyet"),
+    ("sosyal medyada başkalarını görünce kendimi kötü hissediyorum, hep kıyaslıyorum", "hased/kiyaslama"),
+    ("arkadaşımın başarısına dayanamıyorum, içim kıskançlıktan yanıyor", "hased/hased_ici_yanma"),
+    ("Allah'ın varlığından şüphe ediyorum, aklıma dini şüpheler geliyor", "supheler/iman_supheleri"),
+    ("namaz kılarken hiçbir şey hissetmiyorum, kalbim katılaştı", "supheler/kalp_katiligi"),
 ]
 
 t0 = time.time()
