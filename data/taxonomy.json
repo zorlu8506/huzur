@@ -24,13 +24,15 @@
           "tevekkul",
           "kader_teslim",
           "kader_hikmet",
-          "dua_zaman"
+          "dua_zaman",
+          "musibet_hikmet"
         ],
         "ruh": [
           "talak3",
           "duha5",
           "insirah6",
-          "bakara216"
+          "bakara216",
+          "bakara155"
         ],
         "kissa": [
           "gemi"
@@ -57,13 +59,16 @@
         "kalp": [
           "rizik_tevekkul",
           "tevekkul",
-          "dua_zaman"
+          "dua_zaman",
+          "musibet_hikmet",
+          "sabir_ecir"
         ],
         "ruh": [
           "hud6",
           "talak3",
           "talak7",
-          "aliimran139"
+          "aliimran139",
+          "bakara155"
         ]
       },
       "belirsizlik": {
@@ -89,13 +94,15 @@
           "kader_hikmet",
           "teslim_yuk",
           "musibet_hikmet",
-          "dua_zaman"
+          "dua_zaman",
+          "sabir_ecir"
         ],
         "ruh": [
           "bakara286",
           "talak7",
           "ali173",
-          "bakara216"
+          "bakara216",
+          "aliimran139"
         ],
         "kissa": [
           "gemi"
@@ -120,12 +127,16 @@
         "kalp": [
           "huzur_iman",
           "kader_teslim",
-          "an_yasama"
+          "an_yasama",
+          "musibet_hikmet",
+          "dua_zaman"
         ],
         "ruh": [
           "duha3",
           "kaf16",
-          "bakara286"
+          "bakara286",
+          "bakara216",
+          "yunus57"
         ],
         "kissa": [
           "yunus"
@@ -155,13 +166,16 @@
         "kalp": [
           "sabir_kis",
           "sefkat_teselli",
-          "sabir_ecir"
+          "sabir_ecir",
+          "musibet_hikmet",
+          "an_yasama"
         ],
         "ruh": [
           "tevbe40",
           "duha3",
           "insirah6",
-          "bakara155"
+          "bakara155",
+          "bakara153"
         ]
       },
       "degersizlik": {
@@ -183,13 +197,16 @@
         "kalp": [
           "sefkat_teselli",
           "marifetullah",
-          "kendine_merhamet"
+          "kendine_merhamet",
+          "ic_dunya",
+          "unsiyet"
         ],
         "ruh": [
           "duha3",
           "duha5",
           "kaf16",
-          "nahl97"
+          "nahl97",
+          "bakara153"
         ],
         "kissa": [
           "ayna"
@@ -216,12 +233,16 @@
         "kalp": [
           "an_yasama",
           "ic_dunya",
-          "degisim_gayret"
+          "degisim_gayret",
+          "marifetullah",
+          "sefkat_teselli"
         ],
         "ruh": [
           "duha5",
           "bakara152",
-          "nahl97"
+          "nahl97",
+          "bakara216",
+          "yunus57"
         ],
         "kissa": [
           "tohum"
@@ -255,12 +276,16 @@
         "kalp": [
           "nefis_terbiye",
           "af_olgunluk",
-          "af_ferahlik"
+          "af_ferahlik",
+          "sabir_kis",
+          "musibet_hikmet"
         ],
         "ruh": [
           "aliimran134",
           "fussilet34",
-          "shura40"
+          "shura40",
+          "araf199",
+          "furkan63"
         ]
       },
       "kirginlik": {
@@ -283,12 +308,16 @@
         "kalp": [
           "af_olgunluk",
           "nefis_terbiye",
-          "af_ferahlik"
+          "af_ferahlik",
+          "sefkat_teselli",
+          "kendine_merhamet"
         ],
         "ruh": [
           "araf199",
           "aliimran134",
-          "furkan63"
+          "furkan63",
+          "shura40",
+          "fussilet34"
         ]
       },
       "kendine": {
@@ -312,12 +341,16 @@
         "kalp": [
           "affedilme_rahmet",
           "kendine_merhamet",
-          "tevbe_kapisi"
+          "tevbe_kapisi",
+          "af_ferahlik",
+          "mahcubiyet_rahmet"
         ],
         "ruh": [
           "zumer53",
           "duha3",
-          "nisa110"
+          "nisa110",
+          "hud114",
+          "aliimran135"
         ]
       }
     }
@@ -343,12 +376,16 @@
         "kalp": [
           "unsiyet",
           "sefkat_teselli",
-          "marifetullah"
+          "marifetullah",
+          "ic_dunya",
+          "kendine_merhamet"
         ],
         "ruh": [
           "duha3",
           "hadid4",
-          "yunus57"
+          "yunus57",
+          "bakara186",
+          "kaf16"
         ]
       },
       "anlasilmamak": {
@@ -370,12 +407,16 @@
         "kalp": [
           "marifetullah",
           "ic_dunya",
-          "unsiyet"
+          "unsiyet",
+          "sefkat_teselli",
+          "kendine_merhamet"
         ],
         "ruh": [
           "bakara186",
           "kaf16",
-          "yunus57"
+          "yunus57",
+          "hadid4",
+          "duha3"
         ],
         "kissa": [
           "ayna"
@@ -399,12 +440,16 @@
         "kalp": [
           "marifetullah",
           "unsiyet",
-          "ic_dunya"
+          "ic_dunya",
+          "huzur_iman",
+          "kalp_yumusama"
         ],
         "ruh": [
           "bakara186",
           "kaf16",
-          "hadid4"
+          "hadid4",
+          "rad28",
+          "yunus57"
         ],
         "kissa": [
           "ayna"
@@ -434,12 +479,16 @@
         "kalp": [
           "yeis_kurtulus",
           "umit_gayret",
-          "degisim_gayret"
+          "degisim_gayret",
+          "sabir_ecir",
+          "musibet_hikmet"
         ],
         "ruh": [
           "insirah6",
           "zumer53",
-          "talak7"
+          "talak7",
+          "yusuf87",
+          "bakara155"
         ],
         "kissa": [
           "tohum",
@@ -466,12 +515,16 @@
         "kalp": [
           "affedilme_rahmet",
           "kendine_merhamet",
-          "tevbe_kapisi"
+          "tevbe_kapisi",
+          "af_ferahlik",
+          "mahcubiyet_rahmet"
         ],
         "ruh": [
           "zumer53",
           "yusuf87",
-          "nisa110"
+          "nisa110",
+          "hud114",
+          "aliimran135"
         ],
         "kissa": [
           "yunus"
@@ -496,12 +549,16 @@
         "kalp": [
           "umit_gayret",
           "kader_teslim",
-          "degisim_gayret"
+          "degisim_gayret",
+          "sabir_ecir",
+          "musibet_hikmet"
         ],
         "ruh": [
           "talak7",
           "yusuf87",
-          "bakara286"
+          "bakara286",
+          "insirah6",
+          "rad11"
         ],
         "kissa": [
           "yunus",
@@ -534,13 +591,16 @@
         "kalp": [
           "teslim_yuk",
           "an_vazife",
-          "sabir_ecir"
+          "sabir_ecir",
+          "musibet_hikmet",
+          "degisim_gayret"
         ],
         "ruh": [
           "bakara286",
           "nisa28",
           "talak7",
-          "taha25"
+          "taha25",
+          "bakara155"
         ]
       },
       "duyarsizlik": {
@@ -562,12 +622,16 @@
         "kalp": [
           "sukur",
           "nimet_farketme",
-          "an_yasama"
+          "an_yasama",
+          "degisim_gayret",
+          "sabir_ecir"
         ],
         "ruh": [
           "ibrahim7",
           "bakara152",
-          "duha5"
+          "duha5",
+          "nahl97",
+          "bakara153"
         ]
       }
     }
@@ -597,12 +661,16 @@
         "kalp": [
           "huzur_iman",
           "an_yasama",
-          "dua_zaman"
+          "dua_zaman",
+          "sabir_ecir",
+          "tevekkul"
         ],
         "ruh": [
           "bakara286",
           "ali173",
-          "bakara45"
+          "bakara45",
+          "insirah6",
+          "yunus57"
         ],
         "kissa": [
           "gemi"
@@ -630,12 +698,16 @@
         "kalp": [
           "vesvese_21",
           "huzur_iman",
-          "kalp_yumusama"
+          "kalp_yumusama",
+          "supheden_kurtulus",
+          "an_yasama"
         ],
         "ruh": [
           "ali173",
           "rad28",
-          "yunus57"
+          "yunus57",
+          "bakara2",
+          "muhammed17"
         ],
         "kissa": [
           "misafir"
@@ -666,12 +738,16 @@
         "kalp": [
           "tevbe_kapisi",
           "kendine_merhamet",
-          "af_ferahlik"
+          "af_ferahlik",
+          "affedilme_rahmet",
+          "mahcubiyet_rahmet"
         ],
         "ruh": [
           "nisa110",
           "hud114",
-          "aliimran135"
+          "aliimran135",
+          "tahrim8",
+          "zumer53"
         ]
       },
       "utanma_mahcubiyet": {
@@ -695,12 +771,16 @@
         "kalp": [
           "kendine_merhamet",
           "sefkat_teselli",
-          "tevbe_kapisi"
+          "tevbe_kapisi",
+          "af_ferahlik",
+          "affedilme_rahmet"
         ],
         "ruh": [
           "aliimran135",
           "hud114",
-          "nisa110"
+          "nisa110",
+          "furkan63",
+          "tahrim8"
         ]
       },
       "allaha_mahcubiyet": {
@@ -722,12 +802,16 @@
         "kalp": [
           "mahcubiyet_rahmet",
           "affedilme_rahmet",
-          "tevbe_kapisi"
+          "tevbe_kapisi",
+          "kendine_merhamet",
+          "af_ferahlik"
         ],
         "ruh": [
           "tahrim8",
           "nisa110",
-          "hud114"
+          "hud114",
+          "zumer53",
+          "aliimran135"
         ],
         "kissa": [
           "yunus"
@@ -758,12 +842,16 @@
         "kalp": [
           "hased_sukur",
           "sukur",
-          "degisim_gayret"
+          "degisim_gayret",
+          "nimet_farketme",
+          "rizik_tevekkul"
         ],
         "ruh": [
           "nisa32",
           "ibrahim7",
-          "nahl97"
+          "nahl97",
+          "hud6",
+          "felak5"
         ]
       },
       "hased_ici_yanma": {
@@ -787,12 +875,16 @@
         "kalp": [
           "hased_sukur",
           "nimet_farketme",
-          "af_ferahlik"
+          "af_ferahlik",
+          "rizik_tevekkul",
+          "sukur"
         ],
         "ruh": [
           "felak5",
           "nisa32",
-          "nahl97"
+          "nahl97",
+          "hud6",
+          "ibrahim7"
         ],
         "kissa": [
           "ayna"
@@ -823,12 +915,16 @@
         "kalp": [
           "supheden_kurtulus",
           "huzur_iman",
-          "kalp_yumusama"
+          "kalp_yumusama",
+          "marifetullah",
+          "vesvese_21"
         ],
         "ruh": [
           "bakara2",
           "muhammed17",
-          "rad28"
+          "rad28",
+          "yunus57",
+          "ali173"
         ],
         "kissa": [
           "misafir"
@@ -853,12 +949,16 @@
         "kalp": [
           "marifetullah",
           "huzur_iman",
-          "kalp_yumusama"
+          "kalp_yumusama",
+          "supheden_kurtulus",
+          "an_yasama"
         ],
         "ruh": [
           "rad28",
           "bakara152",
-          "muhammed17"
+          "muhammed17",
+          "bakara2",
+          "yunus57"
         ]
       }
     }
