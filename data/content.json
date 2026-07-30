@@ -149,6 +149,56 @@
       "ar": "وَالَّذِينَ اهْتَدَوْا زَادَهُمْ هُدًى",
       "meal": "Doğru yolu bulanların ise Allah hidayetlerini artırır.",
       "ref": "Muhammed, 17"
+    },
+    "bakara216": {
+      "ar": "وَعَسَىٰ أَن تَكْرَهُوا شَيْئًا وَهُوَ خَيْرٌ لَّكُمْ",
+      "meal": "Hoşunuza gitmeyen bir şey hakkınızda hayırlı olabilir.",
+      "ref": "Bakara, 216"
+    },
+    "taha25": {
+      "ar": "رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي",
+      "meal": "Rabbim! Göğsümü aç (genişlet) ve işimi kolaylaştır.",
+      "ref": "Tâhâ, 25-26"
+    },
+    "aliimran139": {
+      "ar": "وَلَا تَهِنُوا وَلَا تَحْزَنُوا وَأَنتُمُ الْأَعْلَوْنَ إِن كُنتُم مُّؤْمِنِينَ",
+      "meal": "Gevşemeyin, üzülmeyin; eğer mü'minseniz en üstün olan sizsiniz.",
+      "ref": "Âl-i İmran, 139"
+    },
+    "bakara155": {
+      "ar": "وَلَنَبْلُوَنَّكُم بِشَيْءٍ مِّنَ الْخَوْفِ وَالْجُوعِ ... وَبَشِّرِ الصَّابِرِينَ",
+      "meal": "Sizi biraz korku, açlık ve eksiklikle deneriz; sabredenleri müjdele.",
+      "ref": "Bakara, 155"
+    },
+    "shura40": {
+      "ar": "وَجَزَاءُ سَيِّئَةٍ سَيِّئَةٌ مِّثْلُهَا فَمَنْ عَفَا وَأَصْلَحَ فَأَجْرُهُ عَلَى اللَّهِ",
+      "meal": "Bir kötülüğün cezası misliyle bir kötülüktür; ama kim affeder ve barışırsa onun ecri Allah'a aittir.",
+      "ref": "Şûrâ, 40"
+    },
+    "rad11": {
+      "ar": "إِنَّ اللَّهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتَّىٰ يُغَيِّرُوا مَا بِأَنفُسِهِمْ",
+      "meal": "Bir toplum kendindekini değiştirmedikçe Allah onların durumunu değiştirmez.",
+      "ref": "Ra'd, 11"
+    },
+    "yunus57": {
+      "ar": "يَا أَيُّهَا النَّاسُ قَدْ جَاءَتْكُم مَّوْعِظَةٌ مِّن رَّبِّكُمْ وَشِفَاءٌ لِّمَا فِي الصُّدُورِ",
+      "meal": "Ey insanlar! Size Rabbinizden bir öğüt ve gönüllerdeki dertlere şifa geldi.",
+      "ref": "Yûnus, 57"
+    },
+    "bakara45": {
+      "ar": "وَاسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ",
+      "meal": "Sabır ve namazla yardım isteyin.",
+      "ref": "Bakara, 45"
+    },
+    "furkan63": {
+      "ar": "وَعِبَادُ الرَّحْمَٰنِ الَّذِينَ يَمْشُونَ عَلَى الْأَرْضِ هَوْنًا وَإِذَا خَاطَبَهُمُ الْجَاهِلُونَ قَالُوا سَلَامًا",
+      "meal": "Rahmân'ın kulları yeryüzünde vakarla yürüyenlerdir; cahiller onlara laf attığında 'selam' derler (ve geçerler).",
+      "ref": "Furkan, 63"
+    },
+    "nahl97": {
+      "ar": "مَنْ عَمِلَ صَالِحًا مِّن ذَكَرٍ أَوْ أُنثَىٰ وَهُوَ مُؤْمِنٌ فَلَنُحْيِيَنَّهُ حَيَاةً طَيِّبَةً",
+      "meal": "Erkek ya da kadın, kim mü'min olarak salih amel işlerse, ona hoş (tayyib) bir hayat yaşatırız.",
+      "ref": "Nahl, 97"
     }
   },
   "risale": {
@@ -297,6 +347,30 @@
     "supheden_kurtulus": {
       "sade": "Kalbe gelen şüphe, çoğu zaman imanın söndüğü değil, imtihan edildiği andır. Ona karşı direnmek değil, zikir ve sebatla üstüne gitmemek şüpheyi zayıflatır.",
       "ref": "Şüpheden kurtuluş teması"
+    },
+    "sabir_ecir": {
+      "sade": "Sabır, karşılıksız bir bekleyiş değildir; sabredenlerin ecri hesapsız verilir. Katlandığın her an, görünmeyen bir terazide tartılıyor.",
+      "ref": "Sabrın ecri teması"
+    },
+    "musibet_hikmet": {
+      "sade": "Görünen musibetin ardında çoğu zaman görünmeyen bir hikmet perdesi vardır. Şikâyeti erteleyip hikmete güvenmek, belirsizliğin ağırlığını hafifletir.",
+      "ref": "Musibette hikmet teması"
+    },
+    "degisim_gayret": {
+      "sade": "Dışarıdaki hal, önce içerideki gayretle değişir. Beklemek yerine atılabilecek en küçük adım, çaresizliğin kilidini ilk açan şeydir.",
+      "ref": "Değişim ve gayret teması"
+    },
+    "af_ferahlik": {
+      "sade": "Affetmek karşındakini haklı çıkarmak değildir; kendi kalbini taşıdığı ağırlıktan kurtarmaktır. Öfkeyi taşımak, onu bırakmaktan daha yorucudur.",
+      "ref": "Af ve ferahlık teması"
+    },
+    "dua_zaman": {
+      "sade": "Duanın gecikmesi, reddedilmesi değildir. Her şeyin bir vakti vardır; sana düşen, elinden geleni yapıp zamanlamayı bilene bırakmaktır.",
+      "ref": "Dua ve zamanlama teması"
+    },
+    "kalp_yumusama": {
+      "sade": "Katılaşan bir kalp, kaybolmuş değil; sadece geçici bir uykudadır. Zikir ve küçük bir hatırlayış, o kalbi yeniden uyandırır.",
+      "ref": "Kalbin yumuşaması teması"
     }
   },
   "somatik": {
