@@ -230,7 +230,7 @@ TAX = {
      "nefis":["ground"],"akil":["defusion","degerler"],"kalp":["marifetullah","ic_dunya","unsiyet"],"ruh":["bakara186","kaf16","yunus57"]},
    "manevi":{"label":"Manevi yalnızlık","note":"Kalabalıkta bile hissedilen o boşluğu bir yakınlıkla dolduralım.",
      "seeds":["içsel yalnızlık","ruhen yalnızım","Allah'a uzak, manen yalnız hissediyorum","maneviyatımdan kopmuş hissediyorum"],
-     "nefis":["b478"],"akil":["uc_iyi"],"kalp":["marifetullah","unsiyet"],"ruh":["bakara186","kaf16","hadid4"]},
+     "nefis":["b478"],"akil":["uc_iyi"],"kalp":["marifetullah","unsiyet","ic_dunya"],"ruh":["bakara186","kaf16","hadid4"]},
  }},
  "yeis":{"label":"Umutsuzluk","subs":{
    "genel":{"label":"Tükenmiş umut","note":"Çıkış görünmüyor olabilir. Yolun tamamını değil, bir adımı görmen yeter.",
