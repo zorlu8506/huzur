@@ -223,9 +223,11 @@
         "note": "Öfken bir adalet duygusundan geliyor. Önce onu güvene alalım.",
         "seeds": [
           "bana haksızlık yapıldı",
-          "çok adaletsiz bir durum",
-          "hak etmediğim halde",
-          "içimde büyük bir öfke var"
+          "çok adaletsiz bir duruma maruz kaldım",
+          "hak etmediğim halde suçlandım",
+          "bu haksızlığa çok öfkeliyim, içim yanıyor",
+          "adaletsizlik karşısında öfkem kabarıyor",
+          "bana yapılan haksızlıktan dolayı çok kızgınım"
         ],
         "nefis": [
           "fizyo",
@@ -276,9 +278,9 @@
         "note": "Kendine kızmak yorar. Rahmetin kapısı senin kapanmandan geniş.",
         "seeds": [
           "kendime çok kızgınım",
-          "kendime öfkeliyim",
-          "pişmanım",
-          "aptallık ettim",
+          "kendi kendime öfkeliyim",
+          "kendi hatamdan dolayı kendime kızıyorum",
+          "aptallık ettiğim için kendime çok öfkeliyim",
           "neden öyle yaptım diye kendime kızıyorum"
         ],
         "nefis": [

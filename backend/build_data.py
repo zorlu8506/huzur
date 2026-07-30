@@ -194,13 +194,13 @@ TAX = {
  }},
  "ofke":{"label":"Öfke","subs":{
    "haksizlik":{"label":"Haksızlığa öfke","note":"Öfken bir adalet duygusundan geliyor. Önce onu güvene alalım.",
-     "seeds":["bana haksızlık yapıldı","çok adaletsiz bir durum","hak etmediğim halde","içimde büyük bir öfke var"],
+     "seeds":["bana haksızlık yapıldı","çok adaletsiz bir duruma maruz kaldım","hak etmediğim halde suçlandım","bu haksızlığa çok öfkeliyim, içim yanıyor","adaletsizlik karşısında öfkem kabarıyor","bana yapılan haksızlıktan dolayı çok kızgınım"],
      "nefis":["fizyo","box"],"akil":["yeniden","kontrol"],"kalp":["nefis_terbiye","af_olgunluk"],"ruh":["aliimran134","fussilet34"]},
    "kirginlik":{"label":"Yakınına kırgınlık","note":"En çok, sevdiğimiz incitir. Bu yarayı anlayarak tutalım.",
      "seeds":["sevdiğim biri beni kırdı","çok kırgınım","küstüm ona","yakınım beni incitti"],
      "nefis":["box"],"akil":["yeniden","defusion"],"kalp":["af_olgunluk","nefis_terbiye"],"ruh":["araf199","aliimran134"]},
    "kendine":{"label":"Kendine öfke / pişmanlık","note":"Kendine kızmak yorar. Rahmetin kapısı senin kapanmandan geniş.",
-     "seeds":["kendime çok kızgınım","kendime öfkeliyim","pişmanım","aptallık ettim","neden öyle yaptım diye kendime kızıyorum"],
+     "seeds":["kendime çok kızgınım","kendi kendime öfkeliyim","kendi hatamdan dolayı kendime kızıyorum","aptallık ettiğim için kendime çok öfkeliyim","neden öyle yaptım diye kendime kızıyorum"],
      "nefis":["b478"],"akil":["mektup","kanit"],"kalp":["affedilme_rahmet","kendine_merhamet"],"ruh":["zumer53","duha3"]},
  }},
  "yalnizlik":{"label":"Yalnızlık","subs":{
